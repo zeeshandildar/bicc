@@ -23,6 +23,7 @@
   opacity: 0;
   z-index: 0;
   transition: opacity 2s ease-in-out;
+  filter: brightness(1.1) contrast(1.05); /* Boost visibility */
 }
 
 .backgroundLayer.visible {
@@ -55,9 +56,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    var(--bg-dark) 100%
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
   );
   z-index: 1;
 }
