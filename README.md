@@ -1,4 +1,5 @@
 # BICC — Barcelona International Cricket Club Website
+*Last Updated: May 10, 2026*
 
 Official website for the **Barcelona International Cricket Club** — Catalonia's oldest cricket club, founded in 1982.
 
