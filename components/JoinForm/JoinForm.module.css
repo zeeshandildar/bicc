@@ -1,36 +1,39 @@
 .formWrapper {
-  max-width: 640px;
+  max-width: 800px; /* Wider for more room */
   margin: 0 auto;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 40px;
+  border-radius: var(--radius-md);
+  padding: 60px; /* Much more spacious */
+  box-shadow: var(--shadow-lg);
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 32px; /* Bigger gap between columns */
 }
 
 .submitBtn {
   width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--bg-primary);
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  padding: 18px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: black;
+  background: var(--accent-gold);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-base);
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .submitBtn:hover {
-  background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+  background: white;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
 }
 
 .submitBtn:disabled {
@@ -41,7 +44,7 @@
 
 .success {
   text-align: center;
-  padding: 48px 24px;
+  padding: 80px 40px;
 }
 
 .successIcon {
