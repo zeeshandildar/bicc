@@ -1,0 +1,80 @@
+'use client';
+import MemberCard from '../../components/MemberCard/MemberCard';
+import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
+import { useLanguage } from '../../lib/LanguageContext';
+// ✏️ TO ADD / EDIT MEMBERS: open data/members.js
+import { members as membersData } from '../../data/members';
+
+// Role translations: English role → Spanish display label
+const roleTranslations = {
+  'batsman':       'bateador',
+  'bowler':        'lanzador',
+  'all-rounder':   'todoterreno',
+  'wicket-keeper': 'wicket-keeper',
+};
+
+export default function MembersPage() {
+  const { t } = useLanguage();
+
+  // Translate role and nationality for display
+  const members = membersData.map((m) => ({
+    ...m,
+    role: t(m.role, roleTranslations[m.role] || m.role),
+  }));
+
+  // Split members into Board and Regular players
+  const boardMembers = members.filter(m => m.isBoardMember);
+  const clubPlayers = members.filter(m => !m.isBoardMember);
+
+  return (
+    <div className="page-enter" style={{ paddingTop: 'var(--nav-height)' }}>
+      <section style={{ padding: '80px 0 40px', background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <ScrollAnimation>
+            <div className="badge" style={{ marginBottom: '16px' }}>{t('🌍 20+ Nations', '🌍 20+ Naciones')}</div>
+            <h1>{t('Our', 'Nuestros')} <span className="gradient-text">{t('Members', 'Miembros')}</span></h1>
+            <p style={{ maxWidth: '600px', margin: '20px auto 0', color: 'var(--text-muted)', fontSize: '1.1rem' }}>
+              {t('The heart and soul of BICC — players from around the world united by cricket.', 'El corazón y el alma del BICC: jugadores de todo el mundo unidos por el críquet.')}
+            </p>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* Board Members Section */}
+      <section className="section" style={{ paddingBottom: '40px' }}>
+        <div className="container">
+          <ScrollAnimation>
+            <h2 style={{ marginBottom: '40px', borderLeft: '4px solid var(--accent-gold)', paddingLeft: '16px' }}>
+              {t('Board Members', 'Miembros de la Junta')}
+            </h2>
+          </ScrollAnimation>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
+            {boardMembers.map((m, i) => (
+              <ScrollAnimation key={m.slug} delay={i * 50}>
+                <MemberCard member={m} />
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Regular Players Section */}
+      <section className="section" style={{ paddingTop: '40px' }}>
+        <div className="container">
+          <ScrollAnimation>
+            <h2 style={{ marginBottom: '40px', borderLeft: '4px solid var(--text-muted)', paddingLeft: '16px' }}>
+              {t('Club Players', 'Jugadores del Club')}
+            </h2>
+          </ScrollAnimation>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
+            {clubPlayers.map((m, i) => (
+              <ScrollAnimation key={m.slug} delay={i * 20}>
+                <MemberCard member={m} />
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

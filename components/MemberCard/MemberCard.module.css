@@ -1,0 +1,142 @@
+.cardContainer {
+  display: block;
+  perspective: 1000px;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-thin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out, box-shadow 0.2s ease, border-color 0.5s ease;
+  will-change: transform;
+}
+
+.card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(201, 168, 76, 0.2);
+  z-index: 10;
+}
+
+.glare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  opacity: var(--glare-opacity, 0);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+.imageWrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  transform: translateZ(15px);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg-card) 5%, transparent 60%);
+}
+
+.roleBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--accent-red);
+  transform: translateZ(35px);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info {
+  padding: 24px;
+  text-align: center;
+  transform: translateZ(25px);
+  background: var(--bg-card); /* Ensure text is readable over the image if it overflows, though it shouldn't here */
+}
+
+.nationality {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.flagIcon {
+  height: 12px;
+  width: auto;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.flagEmoji {
+  text-transform: none;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statVal {
+  color: white;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

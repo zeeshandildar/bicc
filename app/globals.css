@@ -1,0 +1,265 @@
+/* ===== BICC PREMIUM DESIGN SYSTEM (Barcelona Edition) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Core Palette (Blaugrana Premium Edition) */
+  --bg-dark: #000000;         
+  --bg-secondary: #050508;    
+  --bg-card: #0a0a0f;
+  --bg-elevated: #12121a;
+  
+  --accent-red: #a50044;      /* Deep Claret / Garnet */
+  --accent-blue: #004d98;     /* FC Barcelona Blue */
+  --accent-gold: #ffd700;     /* Metallic Gold Highlight */
+  --accent-gold-bright: #ffea00;
+  
+  --gradient-red: linear-gradient(135deg, #a50044, #7a0032);
+  --gradient-blue: linear-gradient(135deg, #004d98, #003366);
+  --gradient-gold: linear-gradient(135deg, #ffd700, #b8860b);
+  --gradient-blaugrana: linear-gradient(135deg, #a50044 0%, #004d98 100%);
+  
+  --accent-gold-glow: rgba(255, 215, 0, 0.25);
+  --accent-red-glow: rgba(165, 0, 68, 0.4);
+  --accent-blue-glow: rgba(0, 77, 152, 0.4);
+  
+  /* Text */
+  --text-pure: #ffffff;
+  --text-primary: #f0f0f0;
+  --text-main: #e0e0e0;       
+  --text-dim: #b0b0b0;        
+  --text-muted: #707070;
+
+  /* Borders & Glass */
+  --border-thin: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 215, 0, 0.15);
+  --border-accent: var(--accent-gold); 
+  --glass-bg: rgba(0, 0, 0, 0.85);
+  --glass-blur: 24px;
+
+  /* Shadows */
+  --shadow-lg: 0 10px 50px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing */
+  --nav-h: 80px;
+  --max-width: 1400px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 40px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-dark);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.8;
+  overflow-x: hidden; /* Double layer of protection */
+  -webkit-font-smoothing: antialiased;
+  width: 100%; /* Ensure body doesn't expand beyond viewport */
+}
+
+/* Custom Selection Color */
+::selection {
+  background: var(--accent-gold);
+  color: black;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-pure);
+  line-height: 1;
+}
+
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.15em;
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold) 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-red {
+  background: var(--gradient-red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-blue {
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-blaugrana {
+  background: var(--gradient-blaugrana);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== UTILITIES ===== */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+
+/* Floating Glass Effect */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+}
+
+/* ===== BUTTONS ===== */
+.btn-premium {
+  padding: 18px 40px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-red {
+  background: var(--accent-red);
+  color: white;
+  box-shadow: 0 10px 30px var(--accent-red-glow);
+}
+
+.btn-red:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px var(--accent-red-glow);
+  filter: brightness(1.2);
+}
+
+.btn-blue {
+  background: var(--accent-blue);
+  color: white;
+  box-shadow: 0 10px 30px var(--accent-blue-glow);
+}
+
+.btn-blue:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px var(--accent-blue-glow);
+  filter: brightness(1.2);
+}
+
+.btn-gold {
+  background: var(--accent-gold);
+  color: black;
+  box-shadow: 0 10px 30px var(--accent-gold-glow);
+}
+
+.btn-gold:hover {
+  background: white;
+  color: black;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.2);
+}
+
+.btn-blaugrana {
+  background: var(--gradient-blaugrana);
+  color: white;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-blaugrana:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: var(--accent-gold);
+  box-shadow: 0 20px 50px rgba(165, 0, 68, 0.3);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-outline-gold:hover {
+  background: var(--accent-gold);
+  color: black;
+  box-shadow: 0 10px 30px var(--accent-gold-glow);
+}
+
+/* ===== ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(10px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 10px;
+  border: 2px solid var(--bg-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section-padding { padding: 80px 0; }
+}

@@ -1,0 +1,298 @@
+.profile {
+  padding-top: var(--nav-height);
+}
+
+.heroBanner {
+  position: relative;
+  height: 360px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+  overflow: hidden;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+
+.heroInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.avatarLarge {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-gold);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.heroInfo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Stats Dashboard */
+.statsSection {
+  max-width: var(--max-width);
+  margin: -40px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+}
+
+.statCard {
+  text-align: center;
+  padding: 16px;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Content Sections */
+.contentSection {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+/* Debut */
+.debutCard {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.debutImage {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+}
+
+.debutContent {
+  padding: 32px 32px 32px 0;
+}
+
+.debutContent h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--accent-gold);
+}
+
+.debutContent p {
+  line-height: 1.8;
+}
+
+/* Peer Reviews */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.reviewCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+}
+
+.reviewCard::before {
+  content: '"';
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-size: 3rem;
+  color: var(--accent-gold);
+  opacity: 0.3;
+  font-family: serif;
+  line-height: 1;
+}
+
+.reviewText {
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  padding-top: 16px;
+}
+
+.reviewAuthor {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+/* Highlights */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.highlightCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.highlightImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.highlightBody {
+  padding: 20px;
+}
+
+.highlightBody h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.highlightBody p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Fun Moments */
+.funGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.funCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.funCard h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--accent-gold);
+}
+
+.funCard p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 32px;
+  }
+  .avatarLarge {
+    width: 130px;
+    height: 130px;
+  }
+  .heroInfo h1 {
+    font-size: 1.8rem;
+  }
+  .heroMeta {
+    justify-content: center;
+  }
+  .debutCard {
+    grid-template-columns: 1fr;
+  }
+  .debutContent {
+    padding: 24px;
+  }
+  .heroBanner {
+    height: auto;
+    padding-bottom: 32px;
+  }
+}

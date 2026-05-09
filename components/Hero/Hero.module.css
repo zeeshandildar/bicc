@@ -1,0 +1,288 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.backgroundWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.backgroundLayer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.backgroundLayer.visible {
+  opacity: 1;
+  z-index: 2;
+  animation: smoothZoom 15s linear infinite alternate;
+}
+
+.backgroundLayer.prev {
+  opacity: 1;
+  z-index: 1;
+  /* Add a slower zoom for the departing image to create depth */
+  animation: smoothZoomOut 15s linear forwards;
+}
+
+@keyframes smoothZoom {
+  from { transform: scale(1) rotate(0.01deg); }
+  to { transform: scale(1.15) rotate(0.01deg); }
+}
+
+@keyframes smoothZoomOut {
+  from { transform: scale(1.05) rotate(0.01deg); }
+  to { transform: scale(1) rotate(0.01deg); }
+}
+
+
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    var(--bg-dark) 100%
+  );
+  z-index: 1;
+}
+
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+  z-index: 2;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 100; /* Increased significantly to stay on top */
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 32px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: all; /* Ensure clicks are captured */
+}
+
+.heroInner.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badgeWrap {
+  display: inline-block;
+  margin-bottom: 24px;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.active .badgeWrap {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.badge {
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+.spanUpper {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 10px;
+}
+
+.spanMain {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.actions a:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Stats Strip */
+.statsStrip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 0;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNum {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  color: white;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Mouse Scroll */
+.scrollDown {
+  position: absolute;
+  bottom: 120px; /* Moved down to avoid overlap */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none; /* Make it unclickable so it doesn't block buttons */
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--accent-red);
+  border-radius: 2px;
+  animation: scrollWheel 2s infinite;
+  box-shadow: 0 0 10px var(--accent-red);
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; /* Local protection */
+  }
+
+  .heroInner {
+    padding: 0 20px;
+    margin: 0 auto;
+    width: 100%;
+    transform: translateY(-40px); /* Lift higher to clear stats */
+  }
+
+  .statsStrip {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    background: transparent;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    border-top: none;
+    padding: 0 10px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .statNum {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .scrollDown { display: none; }
+}

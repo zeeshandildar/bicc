@@ -1,0 +1,183 @@
+.discoveryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.cardWrap {
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border-radius: 4px; /* Sharper, more premium */
+  background: #050505;
+  border: 1px solid rgba(255, 215, 0, 0.05);
+  position: relative;
+}
+
+.cardWrap:hover {
+  transform: translateY(-12px) scale(1.02) skewX(-1deg);
+  border-color: var(--accent-gold);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.imageContainer {
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  filter: grayscale(0.2) contrast(1.1);
+  transition: filter 0.6s ease;
+}
+
+.cardWrap:hover .imageContainer {
+  filter: grayscale(0) contrast(1.2);
+}
+
+.zoomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cardWrap:hover .zoomImage {
+  transform: scale(1.15);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  left: auto;
+  background: var(--accent-gold);
+  color: black;
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.cardBody {
+  padding: 32px;
+  background: linear-gradient(to bottom, #050505, #000000);
+}
+
+.cardTitle {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.cardDesc {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.cardLink {
+  margin-top: 24px;
+  color: var(--accent-gold);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardWrap:hover .cardLink {
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+/* CTA Card */
+.ctaPanel {
+  padding: 120px 40px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(255, 215, 0, 0.05), transparent 70%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ctaPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  box-shadow: 0 0 15px var(--accent-gold);
+}
+
+/* Hollow Text Effect */
+.hollowText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+}
+
+.hollowText:hover {
+  -webkit-text-stroke: 1px var(--accent-gold);
+}
+
+.philImageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; /* Spacing between image and gold frame */
+}
+
+.imageDeco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  z-index: 1;
+  opacity: 0.6;
+  background: rgba(255, 215, 0, 0.05); /* Subtle gold tint inside the box */
+}
+
+.philImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .discoveryGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ctaPanel {
+    padding: 80px 24px;
+  }
+
+  .ctaPanel h2 {
+    font-size: 3rem !important;
+  }
+
+  .imageContainer {
+    height: 220px;
+  }
+}
+

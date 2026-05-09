@@ -1,0 +1,320 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+}
+
+.scrolled {
+  height: 70px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  min-width: fit-content;
+}
+
+.logoText {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.logoDot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  margin-top: 8px;
+  box-shadow: 0 0 15px var(--accent-gold);
+}
+
+.desktopLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.navLink {
+  text-decoration: none;
+  color: #a0a0a0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--accent-gold);
+}
+
+.navLink.active {
+  color: var(--accent-gold);
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.ctaBtn {
+  text-decoration: none;
+  background: var(--accent-gold);
+  color: black;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+.ctaBtn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Mobile Toggle */
+.mobileToggle {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-gold);
+}
+
+.menuLabel {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  background: white;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.toggleActive .hamburger span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background: var(--accent-gold);
+}
+
+.toggleActive .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.toggleActive .hamburger span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background: var(--accent-gold);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  max-width: 350px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px;
+  gap: 20px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6);
+  border-left: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  transform: translateX(100%);
+  visibility: hidden;
+}
+
+.menuVisible {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.mobileCta {
+  text-decoration: none;
+  background: var(--accent-red);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+@media (max-width: 1250px) {
+  .desktopLinks { display: none; }
+  .mobileToggle { display: flex; }
+}
+
+/* Language Switcher Dropdown */
+.langDropdownContainer {
+  position: relative;
+  margin: 0 10px;
+}
+
+.langDropdownBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.langDropdownBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownArrow {
+  font-size: 0.6rem;
+  opacity: 0.6;
+}
+
+.langDropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 10px;
+  min-width: 130px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 100;
+}
+
+.langDropdownContainer:hover .langDropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.langMenuItem {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.langMenuItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.langMenuItem.langActive {
+  background: var(--accent-red);
+  color: white;
+}
+
+.mobileLangSwitcher {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileLangSwitcher .langBtn {
+  font-size: 1rem;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  flex: 1;
+  color: white;
+  border: none;
+}
+
+.mobileLangSwitcher .langActive {
+  background: var(--accent-red);
+  color: white;
+}
