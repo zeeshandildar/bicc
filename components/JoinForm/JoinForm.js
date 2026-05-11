@@ -19,26 +19,23 @@ export default function JoinForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-    setSubmitting(true);
-    try {
-      const res = await fetch('/api/join', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, age: form.age ? Number(form.age) : undefined }),
-      });
-      if (res.ok) {
-        setSuccess(true);
-      } else {
-        setErrors({ submit: t('Something went wrong. Please try again.', 'Algo salió mal. Por favor, inténtalo de nuevo.') });
-      }
-    } catch {
-      setErrors({ submit: t('Network error. Please try again.', 'Error de red. Por favor, inténtalo de nuevo.') });
-    }
-    setSubmitting(false);
-  };
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  if (!validate()) return;
+
+  const subject = encodeURIComponent(`New BICC Application: ${form.fullName}`);
+  const body = encodeURIComponent(
+    `Name: ${form.fullName}\n` +
+    `Email: ${form.email}\n` +
+    `Phone: ${form.phone}\n` +
+    `Role: ${form.playingRole}\n` +
+    `Experience: ${form.experienceLevel}\n` +
+    `Message: ${form.message}`
+  );
+
+  window.location.href = `mailto:zeeshandildar1995@gmail.com?subject=${subject}&body=${body}`;
+  setSuccess(true);
+};
 
   const handleChange = (field) => (e) => {
     setForm({ ...form, [field]: e.target.value });
