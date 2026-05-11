@@ -37,6 +37,7 @@ export default function JoinForm() {
   setSuccess(true);
 };
 
+
   const handleChange = (field) => (e) => {
     setForm({ ...form, [field]: e.target.value });
     if (errors[field]) setErrors({ ...errors, [field]: undefined });
