@@ -33,8 +33,11 @@ export default function Navbar() {
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`${styles.container} container`}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>BICC</span>
-          <div className={styles.logoDot}></div>
+          <img
+            src="/images/utility/bicclogo.png"
+            alt="BICC logo"
+            className={styles.logoImage}
+          />
         </Link>
 
         {/* Desktop Links */}

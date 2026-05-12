@@ -33,6 +33,12 @@
   min-width: fit-content;
 }
 
+.logoImage {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
 .logoText {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;

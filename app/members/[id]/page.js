@@ -82,26 +82,6 @@ export default function PlayerProfilePage({ params }) {
         </div>
       </div>
 
-      {/* Stats Dashboard */}
-      <div className={styles.statsSection}>
-        <div className={styles.statsGrid}>
-          {[
-            { val: player.stats.matches, label: t('Matches', 'Partidos') },
-            { val: player.stats.runs?.toLocaleString(), label: t('Runs', 'Carreras') },
-            { val: player.stats.wickets, label: t('Wickets', 'Wickets') },
-            { val: player.stats.catches, label: t('Catches', 'Catches') },
-            { val: player.stats.highScore, label: t('High Score', 'Mejor Puntuación') },
-            { val: player.stats.bestBowling, label: t('Best Bowling', 'Mejor Lanzamiento') },
-            { val: player.stats.average, label: t('Average', 'Promedio') },
-          ].map((s, i) => (
-            <div key={i} className={styles.statCard}>
-              <div className={styles.statValue}>{s.val}</div>
-              <div className={styles.statLabel}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Debut */}
       {player.debutStory && (
         <div className={styles.contentSection}>
