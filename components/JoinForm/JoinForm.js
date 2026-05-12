@@ -19,23 +19,31 @@ export default function JoinForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!validate()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
 
-  const subject = encodeURIComponent(`New BICC Application: ${form.fullName}`);
-  const body = encodeURIComponent(
-    `Name: ${form.fullName}\n` +
-    `Email: ${form.email}\n` +
-    `Phone: ${form.phone}\n` +
-    `Role: ${form.playingRole}\n` +
-    `Experience: ${form.experienceLevel}\n` +
-    `Message: ${form.message}`
-  );
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
 
-  window.location.href = `mailto:zeeshandildar1995@gmail.com?subject=${subject}&body=${body}`;
-  setSuccess(true);
-};
+      if (res.ok) {
+        setSuccess(true);
+      } else {
+        const data = await res.json();
+        setErrors({ submit: data.error || t('Submission failed', 'Error al enviar') });
+      }
+    } catch (error) {
+      setErrors({ submit: t('Network error', 'Error de red') });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
 
 
   const handleChange = (field) => (e) => {

@@ -312,6 +312,12 @@ h1, h2, h3, h4 {
   padding-right: 45px;
 }
 
+.form-select option {
+  background-color: var(--bg-elevated);
+  color: white;
+}
+
+
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
   .section-padding { padding: 80px 0; }
