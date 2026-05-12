@@ -1,7 +1,21 @@
 # BICC — Barcelona International Cricket Club Website
-*Last Updated: May 10, 2026*
+*Last Updated: May 12, 2026*
 
 Official website for the **Barcelona International Cricket Club** — Catalonia's oldest cricket club, founded in 1982.
+
+---
+
+## What Changed Recently
+
+This README has been updated to match the current codebase changes:
+
+- Removed MongoDB/Mongoose backend integration and related models.
+- Removed database seeding flow and `npm run seed` script.
+- Removed content read APIs for events/members/stories (site now serves those from local `data/` files).
+- Updated membership application flow:
+  - `JoinForm` now submits JSON to `/api/join`.
+  - `/api/join` and `/api/contact` now send notifications to a Google Apps Script webhook.
+- Added webhook-based notification flow for Google Sheets logging and email delivery.
 
 ---
 
@@ -11,7 +25,10 @@ Official website for the **Barcelona International Cricket Club** — Catalonia'
 |---|---|
 | Framework | Next.js 16 (App Router) |
 | Frontend | React 19 |
-| Database | MongoDB via Mongoose |
+| Backend | Next.js Route Handlers (`/app/api`) |
+| Notifications | Google Apps Script Webhook |
+| Data Capture | Google Sheets |
+| Content Source | Local JS data files in `data/` |
 | Styling | Vanilla CSS (CSS Modules + global tokens) |
 | Hosting | Vercel |
 
@@ -25,29 +42,20 @@ Official website for the **Barcelona International Cricket Club** — Catalonia'
 npm install
 ```
 
-### 2. Set up environment variables
+### 2. Configure notification settings in code
 
-Copy `.env.example` to `.env.local` and fill in your MongoDB URI:
+Update `lib/notificationConfig.js`:
 
-```bash
-copy .env.example .env.local
+```js
+export const notificationConfig = {
+  webhookUrl: 'https://script.google.com/macros/s/your-deployment-id/exec',
+  sharedSecret: 'replace-with-the-same-secret-used-in-apps-script',
+  notificationEmails: ['committee1@example.com', 'committee2@example.com'],
+  timeoutMs: 20000,
+};
 ```
 
-Then open `.env.local` and add your connection string:
-
-```
-MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/bicc
-```
-
-### 3. Seed the database (first time only)
-
-This populates MongoDB with sample data:
-
-```bash
-npm run seed
-```
-
-### 4. Run the development server
+### 3. Run the development server
 
 ```bash
 npm run dev
@@ -59,7 +67,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Folder Structure
 
-```
+```text
 bicc/
 ├── app/                    # Pages and API routes (Next.js App Router)
 │   ├── layout.js           # Root layout — Navbar, Footer, Language toggle
@@ -68,49 +76,29 @@ bicc/
 │   ├── contact/            # Contact page
 │   ├── events/             # Events list + detail pages
 │   ├── join/               # Membership application form
-│   ├── leaderboard/        # Club Leaderboard (Automated rankings)
+│   ├── leaderboard/        # Club leaderboard page
 │   ├── members/            # Members roster + individual profiles
 │   ├── memories/           # Photo gallery
 │   ├── stories/            # News and stories
 │   ├── story/              # Club history page
 │   ├── yakkian/            # Club humor section
-│   └── api/                # Backend API routes (connect to MongoDB)
+│   └── api/
+│       ├── contact/        # Contact form endpoint
+│       └── join/           # Membership endpoint (webhook notifications)
 │
 ├── components/             # Reusable UI components
-│   ├── Navbar/             # Navigation bar
-│   ├── Footer/             # Site footer
-│   ├── Hero/               # Home page hero with slideshow
-│   ├── MemberCard/         # Player card used on Members page
-│   ├── EventCard/          # Event card used on Events page
-│   ├── StoryCard/          # Story card used on Stories page
-│   ├── JoinForm/           # Membership application form
-│   ├── Timeline/           # Club history timeline
-│   ├── MemoryGallery/      # Photo gallery grid
-│   ├── ScrollAnimation/    # Scroll-reveal animation wrapper
-│   └── ...
-│
-├── data/                   ← ✏️ EDIT CONTENT HERE
-│   ├── members.js          # All player data
-│   ├── events.js           # All events and tours
-│   ├── stories.js          # All news articles
-│   ├── memories.js         # All gallery photos
-│   ├── yakkian.js          # Yakkian quotes and humor
-│   └── siteConfig.js       # Club email, training times, social links, etc.
+├── data/                   # Main editable content source
+│   ├── members.js
+│   ├── events.js
+│   ├── stories.js
+│   ├── memories.js
+│   ├── yakkian.js
+│   ├── history.js
+│   └── siteConfig.js
 │
 ├── lib/
-│   ├── mongodb.js          # MongoDB connection helper
+│   ├── notifications.js    # Webhook notifications (Apps Script)
 │   └── LanguageContext.js  # EN/ES language toggle
-│
-├── models/                 # MongoDB data schemas
-│   ├── Member.js
-│   ├── Event.js
-│   ├── Story.js
-│   ├── Memory.js
-│   ├── JoinApplication.js
-│   └── Yakkian.js
-│
-├── scripts/
-│   └── seed.js             # Database seeding script
 │
 └── public/                 # Static assets (images, icons)
 ```
@@ -120,7 +108,7 @@ bicc/
 ## Updating Website Content
 
 > **The easiest way to update content is to edit the files in the `data/` folder.**
-> You do NOT need to touch any component or page files.
+> Most site sections read directly from those files.
 
 See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for step-by-step instructions.
 
@@ -130,48 +118,182 @@ See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for step-by-step instructions.
 
 ### Deploy to Vercel (Current Platform)
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) → Import your repository
-3. Add environment variable: `MONGODB_URI` = your MongoDB Atlas connection string
-4. Click **Deploy**
+1. Push your code to GitHub.
+2. Import the repository in [vercel.com](https://vercel.com).
+3. Ensure `lib/notificationConfig.js` has production values before deploy.
+4. Deploy.
 
-That's it. Vercel auto-deploys on every push to `main`.
-
-### Switching to a Different Platform
-
-This is a standard Next.js app with no Vercel-specific features except hosting.
-
-**To move to another platform (Railway, Render, Fly.io, etc.):**
-
-1. Make sure the platform supports Node.js
-2. Set the `MONGODB_URI` environment variable on the new platform
-3. Set the build command to: `npm run build`
-4. Set the start command to: `npm run start`
-5. The app runs on port 3000 by default
-
-**To export as a static site (no server needed):**
-
-> Note: Static export will disable the API routes and MongoDB features.
-> The pages will show data from the `data/` files only (no database).
-
-Add this to `next.config.mjs`:
-```js
-const nextConfig = {
-  output: 'export',
-  // ... rest of config
-};
-```
-Then run `npm run build` — the `out/` folder will contain the static site.
+Vercel will auto-deploy on new pushes to your main branch.
 
 ---
 
-## Environment Variables
+## Notification Config
 
-| Variable | Description | Required |
+Notification delivery is configured in `lib/notificationConfig.js`.
+
+| Property | Description | Required |
 |---|---|---|
-| `MONGODB_URI` | MongoDB Atlas connection string | Yes |
+| `webhookUrl` | Deployed Google Apps Script Web App URL | Yes |
+| `sharedSecret` | HMAC secret used to sign outgoing webhook payloads | Recommended |
+| `notificationEmails` | Recipient email list passed to the webhook payload | Optional |
+| `timeoutMs` | Webhook timeout in milliseconds | Optional |
 
-See `.env.example` for the exact format.
+### Google Apps Script Setup
+
+1. Create a Google Sheet for submissions.
+2. Open **Extensions -> Apps Script**.
+3. Paste this script and update `SHEET_NAME` / `NOTIFY_EMAILS`:
+
+```javascript
+const SHEET_NAME = 'Submissions';
+const NOTIFY_EMAILS = ['committee1@example.com', 'committee2@example.com'];
+const SHARED_SECRET = 'replace-with-the-same-secret-used-in-lib-notificationConfig-js';
+
+function doPost(e) {
+  try {
+    const rawBody = e.postData && e.postData.contents ? e.postData.contents : '';
+    const payload = JSON.parse(rawBody || '{}');
+    const signature = payload.signature || '';
+
+    if (SHARED_SECRET) {
+      const unsignedPayload = {
+        eventType: payload.eventType || 'unknown',
+        submittedAt: payload.submittedAt || new Date().toISOString(),
+        recipients: payload.recipients || [],
+        data: payload.data || {},
+      };
+      const expected = Utilities.computeHmacSha256Signature(JSON.stringify(unsignedPayload), SHARED_SECRET)
+        .map(b => ('0' + (b & 0xFF).toString(16)).slice(-2))
+        .join('');
+      if (signature !== expected) {
+        return ContentService.createTextOutput('Invalid signature').setMimeType(ContentService.MimeType.TEXT);
+      }
+    }
+
+    const eventType = payload.eventType || 'unknown';
+    const submittedAt = payload.submittedAt || new Date().toISOString();
+    const data = payload.data || {};
+    const recipients = (payload.recipients || []).length ? payload.recipients : NOTIFY_EMAILS;
+
+    const sheet = getOrCreateSheet_();
+    sheet.appendRow([
+      submittedAt,
+      eventType,
+      JSON.stringify(data),
+    ]);
+
+    MailApp.sendEmail({
+      to: recipients.join(','),
+      subject: buildSubject_(eventType, data),
+      htmlBody: buildEmailHtml_(eventType, submittedAt, data),
+    });
+
+    return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function getOrCreateSheet_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow(['Submitted At', 'Event Type', 'Payload']);
+  }
+  return sheet;
+}
+
+function buildSubject_(eventType, data) {
+  if (eventType === 'join_application') {
+    const fullName = data.fullName || 'Unknown Applicant';
+    return `BICC New Joinee Application : ${fullName}`;
+  }
+
+  if (eventType === 'contact_message') {
+    const name = data.name || 'Unknown Sender';
+    return `BICC Contact Message : ${name}`;
+  }
+
+  return `BICC Notification : ${eventType}`;
+}
+
+function htmlEscape_(value) {
+  return String(value == null ? '' : value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildKeyValueRow_(label, value) {
+  return `<tr><td style="padding:10px 12px;color:#6b7280;font-size:13px;width:220px;border-bottom:1px solid #f1f5f9;">${htmlEscape_(label)}</td><td style="padding:10px 12px;color:#111827;font-size:14px;border-bottom:1px solid #f1f5f9;">${htmlEscape_(value || '—')}</td></tr>`;
+}
+
+function buildEmailHtml_(eventType, submittedAt, data) {
+  const headerTitle = eventType === 'join_application'
+    ? 'New BICC Joinee Application'
+    : eventType === 'contact_message'
+      ? 'New BICC Contact Message'
+      : `BICC Notification: ${eventType}`;
+
+  const intro = 'Submitted to BICC Club Committee for review.';
+
+  let rows = '';
+  if (eventType === 'join_application') {
+    rows += buildKeyValueRow_('Full Name', data.fullName);
+    rows += buildKeyValueRow_('Email', data.email);
+    rows += buildKeyValueRow_('Phone', data.phone);
+    rows += buildKeyValueRow_('Age', data.age);
+    rows += buildKeyValueRow_('Nationality', data.nationality);
+    rows += buildKeyValueRow_('Playing Role', data.playingRole);
+    rows += buildKeyValueRow_('Experience Level', data.experienceLevel);
+    rows += buildKeyValueRow_('Message', data.message);
+  } else if (eventType === 'contact_message') {
+    rows += buildKeyValueRow_('Name', data.name);
+    rows += buildKeyValueRow_('Email', data.email);
+    rows += buildKeyValueRow_('Message', data.message);
+  } else {
+    rows = Object.keys(data)
+      .map(k => buildKeyValueRow_(k, data[k]))
+      .join('');
+  }
+
+  return `
+    <div style="background:#f8fafc;padding:24px;font-family:Arial,sans-serif;color:#0f172a;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;margin:0 auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e2e8f0;">
+        <tr>
+          <td style="background:#0f172a;padding:20px 24px;">
+            <h2 style="margin:0;color:#ffffff;font-size:22px;">${htmlEscape_(headerTitle)}</h2>
+            <p style="margin:8px 0 0;color:#cbd5e1;font-size:13px;">${htmlEscape_(intro)}</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:16px 24px;color:#475569;font-size:13px;">
+            <strong>Submitted At:</strong> ${htmlEscape_(submittedAt)}
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 24px 24px;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+              ${rows}
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `;
+}
+```
+
+4. Deploy as a Web App:
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+5. Copy the deployed URL and set it as `webhookUrl` in `lib/notificationConfig.js`.
+6. Use the same `sharedSecret` value in Apps Script and `lib/notificationConfig.js`.
 
 ---
 
@@ -181,7 +303,6 @@ See `.env.example` for the exact format.
 npm run dev     # Start local development server
 npm run build   # Build for production
 npm run start   # Start production server
-npm run seed    # Seed the MongoDB database with sample data
 ```
 
 ---
