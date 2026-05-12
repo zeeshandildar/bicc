@@ -16,10 +16,13 @@ import { siteConfig } from '../../data/siteConfig';
  */
 
 const HERO_IMAGES = [
-  '/images/hero/487215879_1645331669739475_1076970078825232007_n.jpg',
-  '/images/hero/a-cricket-bat-and-helmet-on-the-grass-photo.jpg',
-  '/images/hero/photo-1540747913346-19e32dc3e97e.avif',
-  '/images/hero/sagrada-familia-barcelona-spain-cathedral-83163693.webp'
+  '/images/hero/hero-image-1.jpg',
+  '/images/hero/hero-image-2.jpg',
+  '/images/hero/hero-image-3.jpg',
+  '/images/hero/hero-image-4.jpg',
+  '/images/hero/hero-image-5.jpg',
+  '/images/hero/hero-image-6.jpg',
+  '/images/hero/hero-image-7.jpg'
 ];
 
 export default function Hero() {
@@ -82,17 +85,10 @@ export default function Hero() {
       <div className={styles.gridOverlay}></div>
       
       <div className={styles.heroInner} ref={contentRef}>
-        <div className={styles.badgeWrap}>
-          <span className={`${styles.badge} bebas`}>
-            {t(`Barcelona's Finest — Est. ${siteConfig.foundedYear}`, `Los mejores de Barcelona — Fund. ${siteConfig.foundedYear}`)}
-          </span>
-        </div>
         
         <h1 className={styles.title}>
-          <span className={styles.spanUpper}>Barcelona</span>
-          <span className={styles.spanMain}>
-            International <span className="gradient-red">Cricket</span> Club
-          </span>
+          <span className={styles.spanMain}>Barcelona International</span>
+          <span className={styles.spanUpper}>Cricket Club</span>
         </h1>
         
         <p className={styles.subtitle}>
@@ -101,7 +97,12 @@ export default function Hero() {
             'El alma del críquet internacional en el corazón de Cataluña. Donde la tradición se une a la pasión en los campos de Barcelona.'
           )}
         </p>
-
+        
+        <div className={styles.badgeWrap}>
+          <span className={`${styles.badge} bebas`}>
+            {t(`Est. ${siteConfig.foundedYear}`, `Fund. ${siteConfig.foundedYear}`)}
+          </span>
+        </div>
 
       </div>
 
