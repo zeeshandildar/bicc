@@ -54,7 +54,7 @@ export default function HomePage() {
                 title: t('Our Members', 'Nuestros Miembros'), 
                 desc: t('Meet the diverse family of 20+ nations that makes BICC special.', 'Conozca a la diversa familia de más de 20 naciones que hace que el BICC sea especial.'),
                 link: '/members',
-                img: '/images/hero/487215879_1645331669739475_1076970078825232007_n.jpg',
+                img: '/images/hero/hero-image-3.jpg',
                 badge: t('20+ Nations', '20+ Naciones')
               }
             ].map((item, i) => (
@@ -96,9 +96,12 @@ export default function HomePage() {
               </h2>
               <p style={{ color: 'var(--text-dim)', marginBottom: '32px', fontSize: '1.1rem' }}>
                 {t(
-                  'We pride ourselves on our sportsmanship, our international community, and our commitment to growing the game in Spain. Whether you are a seasoned pro or a curious beginner, there is a place for you in our ranks.',
-                  'Nos enorgullecemos de nuestra deportividad, nuestra comunidad internacional y nuestro compromiso con el crecimiento del juego en España. Ya seas un profesional experimentado o un principiante curioso, hay un lugar para ti en nuestras filas.'
+                  "What I love about being a part of this club is its diversity. We have people from all walks of life, different nationalities, abilities, and interests who all come together for the same reason. The love of the game. And win or lose we choose to spend time together after the match discussing the highlights amongst other things. There's a real sense of camaraderie in the team.",
+                  'Lo que más me gusta de formar parte de este club es su diversidad. Tenemos gente de todos los ámbitos de la vida, de diferentes nacionalidades, con diversas habilidades e intereses, que nos unimos por la misma razón: la pasión por el fútbol. Y ganemos o perdamos, después del partido nos reunimos para comentar los mejores momentos, entre otras cosas. Hay un verdadero espíritu de compañerismo en el equipo.'
                 )}
+                <span style={{ display: 'block', textAlign: 'right', marginTop: '10px' }}>
+                   Damien McMullen, Former Club President (Australia)
+                </span>
               </p>
               <div style={{ display: 'flex', gap: '20px' }}>
                 <Link href="/join" className="btn-premium btn-red">{t('Apply to Join', 'Solicitar Unirse')}</Link>

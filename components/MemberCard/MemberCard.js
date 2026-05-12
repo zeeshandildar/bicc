@@ -1,13 +1,14 @@
 'use client';
 import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { useLanguage } from '../../lib/LanguageContext';
 import styles from './MemberCard.module.css';
 
 export default function MemberCard({ member }) {
-  const { t } = useLanguage();
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
+  const boardRole = member.isBoardMember && member.bio
+    ? member.bio.split('.')[0].trim()
+    : null;
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -94,20 +95,9 @@ export default function MemberCard({ member }) {
             )}
           </div>
           <h3 className={styles.name}>{member.name}</h3>
-          <div className={styles.stats}>
-            <div className={styles.statItem}>
-              <span className={styles.statVal}>{member.stats.matches}</span>
-              <span className={styles.statLabel}>{t('Matches', 'Partidos')}</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statVal}>{member.stats.runs}</span>
-              <span className={styles.statLabel}>{t('Runs', 'Carreras')}</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statVal}>{member.stats.wickets}</span>
-              <span className={styles.statLabel}>{t('Wickets', 'Wickets')}</span>
-            </div>
-          </div>
+          {boardRole && (
+            <div className={styles.boardRole}>{boardRole}</div>
+          )}
         </div>
       </Link>
     </div>

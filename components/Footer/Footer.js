@@ -53,7 +53,6 @@ export default function Footer() {
           <h4 className={styles.colTitle}>{t('Club', 'Club')}</h4>
           <Link href="/story" className={styles.footerLink}>{t('Our Story', 'Nuestra Historia')}</Link>
           <Link href="/events" className={styles.footerLink}>{t('Events & Tours', 'Eventos y Tours')}</Link>
-          <Link href="/memories" className={styles.footerLink}>{t('Memories', 'Recuerdos')}</Link>
           <Link href="/members" className={styles.footerLink}>{t('Members', 'Miembros')}</Link>
         </div>
         <div>

@@ -110,33 +110,14 @@
 
 .name {
   font-size: 1.25rem;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   color: white;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.statVal {
-  color: white;
-  font-weight: 800;
-  font-size: 1.1rem;
-}
-
-.statLabel {
-  font-size: 0.65rem;
-  color: var(--text-muted);
+.boardRole {
+  font-size: 0.82rem;
+  color: var(--accent-gold);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 700;
 }

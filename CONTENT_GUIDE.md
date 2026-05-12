@@ -39,34 +39,19 @@ This is the most important file for general updates:
 - **Social Media:** Update the URLs in the `social` block. To hide an icon, leave the URL empty (e.g., `youtube: ''`).
 - **Home Page News:** Edit the `newsTicker` list to change the scrolling text at the top of the home page.
 
-## 5. How to Add Photos to the Gallery
-**File:** `data/memories.js`
-
-- Add a new block with a `title`, `caption`, and `image` (URL).
-- Spanish translations are available via `titleEs` and `captionEs`.
-
-## 6. How to Add Funny Quotes (Yakkian)
+## 5. How to Add Funny Quotes (Yakkian)
 **File:** `data/yakkian.js`
 
 - Add a new block with the quote/joke details.
 - Use the `type` field to categorize it (e.g., `'Quote'`, `'Joke'`).
 
-## 7. How to Update Club History
+## 6. How to Update Club History
 **File:** `data/history.js`
 
 - **Introduction:** Update `history.intro` for the main summary.
 - **Eras:** Add or edit historical eras in the `eras` list.
 - **Full Story:** Update the paragraphs in `fullStory` for the detailed history page.
 - **Milestones:** Add new achievements to the `milestones` list.
-
-## 8. Club Leaderboard (Automatic)
-The **Leaderboard** page is fully automated! 
-
-- You do **not** need to edit the leaderboard file.
-- It automatically calculates the Top 10 rankings for Runs, Wickets, and Matches played based on the data in `data/members.js`.
-- Simply keep the player stats updated in `data/members.js`, and the leaderboard will update itself instantly.
-
----
 
 ## 💡 Pro Tips
 - **Images:** Use local paths like `/images/hero/my-photo.jpg` for uploaded images, or high-quality URLs.

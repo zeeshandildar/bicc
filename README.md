@@ -76,9 +76,7 @@ bicc/
 │   ├── contact/            # Contact page
 │   ├── events/             # Events list + detail pages
 │   ├── join/               # Membership application form
-│   ├── leaderboard/        # Club leaderboard page
 │   ├── members/            # Members roster + individual profiles
-│   ├── memories/           # Photo gallery
 │   ├── stories/            # News and stories
 │   ├── story/              # Club history page
 │   ├── yakkian/            # Club humor section
@@ -91,7 +89,6 @@ bicc/
 │   ├── members.js
 │   ├── events.js
 │   ├── stories.js
-│   ├── memories.js
 │   ├── yakkian.js
 │   ├── history.js
 │   └── siteConfig.js

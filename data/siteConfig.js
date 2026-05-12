@@ -54,7 +54,7 @@ export const siteConfig = {
   // ── Hero Stats (shown on the home page hero section) ──────────
   heroStats: [
     { value: '40+',  label: 'Years of Excellence', labelEs: 'Años de Excelencia' },
-    { value: '20+',  label: 'Nations Represented', labelEs: 'Naciones Representadas' },
+    { value: '20+',  label: 'Nationalities', labelEs: 'Nacionalidades' },
     { value: '2025', label: 'ECCL Champions',       labelEs: 'Campeones ECCL' },
   ],
 
