@@ -22,9 +22,10 @@ export default function MembersPage() {
     role: t(m.role, roleTranslations[m.role] || m.role),
   }));
 
-  // Split members into Board and Regular players
+  // Split members into Board, current members, and former members
   const boardMembers = members.filter(m => m.isBoardMember);
-  const clubPlayers = members.filter(m => !m.isBoardMember);
+  const currentMembers = members.filter(m => !m.isBoardMember && !m.isFormerMember);
+  const formerMembers = members.filter(m => !m.isBoardMember && m.isFormerMember);
 
   return (
     <div className="page-enter" style={{ paddingTop: 'var(--nav-height)' }}>
@@ -58,16 +59,34 @@ export default function MembersPage() {
         </div>
       </section>
 
-      {/* Regular Players Section */}
+      {/* Members Section */}
       <section className="section" style={{ paddingTop: '40px' }}>
         <div className="container">
           <ScrollAnimation>
             <h2 style={{ marginBottom: '40px', borderLeft: '4px solid var(--text-muted)', paddingLeft: '16px' }}>
-              {t('Club Players', 'Jugadores del Club')}
+              {t('Members', 'Miembros')}
             </h2>
           </ScrollAnimation>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
-            {clubPlayers.map((m, i) => (
+            {currentMembers.map((m, i) => (
+              <ScrollAnimation key={m.slug} delay={i * 20}>
+                <MemberCard member={m} />
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Former Members Section */}
+      <section className="section" style={{ paddingTop: '20px' }}>
+        <div className="container">
+          <ScrollAnimation>
+            <h2 style={{ marginBottom: '40px', borderLeft: '4px solid var(--text-muted)', paddingLeft: '16px' }}>
+              {t('Former Members', 'Ex Miembros')}
+            </h2>
+          </ScrollAnimation>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
+            {formerMembers.map((m, i) => (
               <ScrollAnimation key={m.slug} delay={i * 20}>
                 <MemberCard member={m} />
               </ScrollAnimation>

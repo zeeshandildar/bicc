@@ -169,6 +169,15 @@ export const members = [
     ccId: '6555576'
   },
   {
+    name: 'James Bentley',
+    slug: 'james-bentley',
+    nationality: '🌍 International',
+    role: 'all-rounder',
+    isFormerMember: true,
+    profileImage: '/images/members/james-bentley.jpg',
+    stats: { matches: 0, runs: 0, wickets: 0 }
+  },
+  {
     name: 'Jones Paulson',
     slug: 'jones-paulson',
     nationality: '🇮🇳 India',
@@ -293,6 +302,7 @@ export const members = [
     slug: 'shane-lightley',
     nationality: '🇬🇧 England',
     role: 'batsman',
+    isFormerMember: true,
     profileImage: '/images/members/shane-lightley.jpg',
     stats: { matches: 10, runs: 73, wickets: 2 },
     squadNumber: 21,
@@ -371,6 +381,7 @@ export const members = [
     slug: 'vishesh-gajjar',
     nationality: '🇮🇳 India',
     role: 'all-rounder',
+    profileImage: '/images/members/vishesh-gajjar.jpg',
     stats: { matches: 21, runs: 69, wickets: 13 },
     squadNumber: 20,
     ccId: '5291521'
