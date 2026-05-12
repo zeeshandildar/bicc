@@ -5,7 +5,7 @@ import styles from './JoinForm.module.css';
 
 export default function JoinForm() {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ fullName: '', email: '', phone: '', age: '', playingRole: 'other', experienceLevel: 'beginner', message: '' });
+  const [form, setForm] = useState({ fullName: '', email: '', phone: '', age: '', nationality: '', playingRole: 'other', experienceLevel: 'beginner', message: '' });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -15,6 +15,7 @@ export default function JoinForm() {
     if (!form.fullName.trim()) e.fullName = t('Name is required', 'El nombre es obligatorio');
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = t('Valid email is required', 'Se requiere un correo electrónico válido');
     if (form.age && (isNaN(form.age) || form.age < 10 || form.age > 80)) e.age = t('Age must be 10-80', 'La edad debe estar entre 10 y 80');
+    if (!form.nationality.trim()) e.nationality = t('Nationality is required', 'La nacionalidad es obligatoria');
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -99,6 +100,12 @@ export default function JoinForm() {
             <option value="other">{t('Other / Not Sure', 'Otro / No estoy seguro')}</option>
           </select>
         </div>
+      </div>
+
+      <div className="form-group">
+        <label className="form-label">{t('Nationality *', 'Nacionalidad *')}</label>
+        <input type="text" className="form-input" value={form.nationality} onChange={handleChange('nationality')} placeholder={t('e.g. British, Indian, Spanish...', 'p.ej. Británico, Indio, Español...')} />
+        {errors.nationality && <div className={styles.error}>{errors.nationality}</div>}
       </div>
 
       <div className="form-group">
