@@ -26,26 +26,15 @@
   gap: 12px;
 }
 
-.logoIcon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--bg-primary);
-  font-family: var(--font-heading);
+.footerLogo {
+  height: 80px;
+  width: auto;
+  display: block;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
-.logoText {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
+
 
 .colTitle {
   font-size: 0.85rem;

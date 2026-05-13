@@ -7,6 +7,7 @@ const nextConfig = {
    * If you use a new image host (like Imgur or your own CDN), you must add it here.
    */
   images: {
+    qualities: [75, 85],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'ui-avatars.com' },
