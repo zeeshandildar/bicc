@@ -20,10 +20,11 @@
 
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 40px; /* Gap between logo and the rest */
 }
+
 
 .logo {
   display: flex;
@@ -37,6 +38,7 @@
   height: clamp(56px, 6vw, 72px);
   width: auto;
   display: block;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scrolled .logoImage {
@@ -51,20 +53,14 @@
   letter-spacing: -1px;
 }
 
-.logoDot {
-  width: 10px;
-  height: 10px;
-  background: var(--accent-gold);
-  border-radius: 50%;
-  margin-top: 8px;
-  box-shadow: 0 0 15px var(--accent-gold);
-}
 
 .desktopLinks {
   display: flex;
   align-items: center;
-  gap: 20px; 
+  gap: 24px;
+  flex: 1; /* Allow this to grow to push the CTA to the right */
 }
+
 
 .navLink {
   text-decoration: none;
@@ -109,6 +105,7 @@
   letter-spacing: 1px;
   transition: all 0.4s ease;
 }
+
 
 .ctaBtn:hover {
   background: white;
@@ -229,8 +226,9 @@
 /* Language Switcher Dropdown */
 .langDropdownContainer {
   position: relative;
-  margin: 0 10px;
+  margin-left: auto; /* Push this and everything after it to the right */
 }
+
 
 .langDropdownBtn {
   background: rgba(255, 255, 255, 0.05);

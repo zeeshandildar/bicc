@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 import styles from './Hero.module.css';
 import { siteConfig } from '../../data/siteConfig';
@@ -19,11 +20,7 @@ const DEFAULT_HERO_IMAGES = [
   '/images/hero/hero-image-1.jpg',
   '/images/hero/hero-image-2.jpg',
   '/images/hero/hero-image-3.jpg',
-  '/images/hero/hero-image-4.jpg',
-  '/images/hero/hero-image-5.jpg',
-  '/images/hero/hero-image-6.jpg',
-  '/images/hero/hero-image-7.jpg',
-  '/images/hero/hero-image-8.jpg'
+  '/images/hero/hero-image-4.jpg'
 ];
 
 export default function Hero() {
@@ -32,36 +29,6 @@ export default function Hero() {
   const [prevImageIndex, setPrevImageIndex] = useState(-1);
   const contentRef = useRef(null);
   const { t } = useLanguage();
-
-  // Defer non-critical hero image fetches until the browser is idle.
-  useEffect(() => {
-    if (heroImages.length < 2) return;
-
-    let timeoutId;
-    let idleId;
-
-    const preloadRemainingImages = () => {
-      heroImages.slice(1).forEach((src) => {
-        const img = new Image();
-        img.src = src;
-      });
-    };
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(preloadRemainingImages);
-    } else {
-      timeoutId = window.setTimeout(preloadRemainingImages, 0);
-    }
-
-    return () => {
-      if (idleId && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-  }, [heroImages]);
 
   // Background Slideshow Logic
   useEffect(() => {
@@ -114,11 +81,17 @@ export default function Hero() {
           if (idx === prevImageIndex) className += ` ${styles.prev}`;
           
           return (
-            <div
-              key={img}
-              className={className}
-              style={{ backgroundImage: `url(${img})` }}
-            />
+            <div key={img} className={className}>
+              <Image
+                src={img}
+                alt="BICC Hero Background"
+                fill
+                priority={idx === 0}
+                style={{ objectFit: 'cover' }}
+                sizes="100vw"
+                quality={85}
+              />
+            </div>
           );
         })}
       </div>
