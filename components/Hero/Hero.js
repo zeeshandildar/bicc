@@ -16,14 +16,14 @@ import { siteConfig } from '../../data/siteConfig';
  */
 
 const DEFAULT_HERO_IMAGES = [
+  '/images/hero/default-hero-image.jpg',
   '/images/hero/hero-image-1.jpg',
   '/images/hero/hero-image-2.jpg',
   '/images/hero/hero-image-3.jpg',
   '/images/hero/hero-image-4.jpg',
   '/images/hero/hero-image-5.jpg',
   '/images/hero/hero-image-6.jpg',
-  '/images/hero/hero-image-7.jpg',
-  '/images/hero/hero-image-8.jpg'
+  '/images/hero/hero-image-7.jpg'
 ];
 
 export default function Hero() {
@@ -112,7 +112,7 @@ export default function Hero() {
           let className = styles.backgroundLayer;
           if (idx === currentImageIndex) className += ` ${styles.visible}`;
           if (idx === prevImageIndex) className += ` ${styles.prev}`;
-          
+
           return (
             <div
               key={img}
@@ -126,21 +126,21 @@ export default function Hero() {
 
       <div className={styles.overlay}></div>
       <div className={styles.gridOverlay}></div>
-      
+
       <div className={styles.heroInner} ref={contentRef}>
-        
+
         <h1 className={styles.title}>
           <span className={styles.spanMain}>Barcelona International</span>
           <span className={styles.spanUpper}>Cricket Club</span>
         </h1>
-        
+
         <p className={styles.subtitle}>
           {t(
             'The soul of international cricket in the heart of Catalonia. Where tradition meets passion on the pitches of Barcelona.',
             'El alma del críquet internacional en el corazón de Cataluña. Donde la tradición se une a la pasión en los campos de Barcelona.'
           )}
         </p>
-        
+
         <div className={styles.badgeWrap}>
           <span className={`${styles.badge} bebas`}>
             {t(`Est. ${siteConfig.foundedYear}`, `Fund. ${siteConfig.foundedYear}`)}
@@ -161,7 +161,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      
+
 
     </section>
   );
