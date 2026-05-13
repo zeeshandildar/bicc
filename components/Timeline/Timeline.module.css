@@ -140,7 +140,8 @@
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
+  .timeline::before,
+  .timeline::after {
     left: 20px;
   }
   .timelineItem,
