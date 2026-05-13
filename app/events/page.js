@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import EventCard from '../../components/EventCard/EventCard';
-import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
 // ✏️ TO ADD / EDIT EVENTS: open data/events.js
 import { events as eventsData } from '../../data/events';
@@ -86,9 +85,7 @@ export default function EventsPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }} className="stagger-children">
             {visibleEvents.map((event, i) => (
-              <ScrollAnimation key={event.slug} delay={i * 60}>
-                <EventCard event={event} />
-              </ScrollAnimation>
+              <EventCard key={event.slug} event={event} priority={i < 4} />
             ))}
           </div>
 
