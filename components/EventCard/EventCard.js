@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 import styles from './EventCard.module.css';
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, priority = false }) {
   const { t, language } = useLanguage();
   const dateStr = t(event.date, event.dateEs);
   
@@ -24,6 +24,7 @@ export default function EventCard({ event }) {
           className={styles.image}
           style={{ objectFit: 'cover' }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
         />
         <div className={styles.overlay}></div>
         <span className={styles.typeBadge}>{typeMap[event.type] || event.type}</span>

@@ -70,6 +70,7 @@ export default function HomePage() {
                         className={styles.zoomImage}
                         style={{ objectFit: 'cover' }}
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={i === 0}
                       />
                       <span className={styles.badge}>
                         {item.badge}

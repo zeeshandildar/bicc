@@ -51,26 +51,6 @@ export default function Hero() {
     }
   }, [currentImageIndex, heroImages.length]);
 
-  // Scroll Reveal Observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.active);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className={styles.hero}>
       {/* Animated Background Layers */}
@@ -100,7 +80,7 @@ export default function Hero() {
       <div className={styles.overlay}></div>
       <div className={styles.gridOverlay}></div>
       
-      <div className={styles.heroInner} ref={contentRef}>
+      <div className={styles.heroInner}>
         
         <h1 className={styles.title}>
           <span className={styles.spanMain}>Barcelona International</span>
