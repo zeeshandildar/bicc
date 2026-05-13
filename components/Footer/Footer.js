@@ -39,8 +39,7 @@ export default function Footer() {
       <div className={styles.footerInner}>
         <div className={styles.brand}>
           <div className={styles.logoRow}>
-            <div className={styles.logoIcon}>B</div>
-            <span className={styles.logoText}>BICC</span>
+            <img src="/images/logo/logo.png" alt="BICC Logo" className={styles.footerLogo} />
           </div>
           <p>
             {t(

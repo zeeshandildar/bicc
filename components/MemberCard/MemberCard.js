@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './MemberCard.module.css';
 
 export default function MemberCard({ member }) {
@@ -73,10 +74,13 @@ export default function MemberCard({ member }) {
       <Link href={`/members/${member.slug}`} className={styles.card} style={style}>
         <div className={styles.glare}></div>
         <div className={styles.imageWrap}>
-          <img 
+          <Image 
             src={member.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1a2b56&color=c9a84c&size=300`} 
             alt={member.name} 
+            fill
             className={styles.image}
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 250px"
           />
           <div className={styles.overlay}></div>
           <div className={styles.roleBadge}>{member.role}</div>

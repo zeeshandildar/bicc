@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { use } from 'react';
 import styles from '../../../components/PlayerProfile/PlayerProfile.module.css';
 import ScrollAnimation from '../../../components/ScrollAnimation/ScrollAnimation';
@@ -64,11 +65,16 @@ export default function PlayerProfilePage({ params }) {
       {/* Hero Banner */}
       <div className={styles.heroBanner}>
         <div className={styles.heroInner}>
-          <img 
-            src={player.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=1a2238&color=c9a84c&size=400&font-size=0.35`} 
-            alt={player.name} 
-            className={styles.avatarLarge} 
-          />
+          <div className={styles.avatarLargeContainer}>
+            <Image 
+              src={player.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=1a2238&color=c9a84c&size=400&font-size=0.35`} 
+              alt={player.name} 
+              width={300}
+              height={300}
+              className={styles.avatarLarge}
+              priority
+            />
+          </div>
           <div className={styles.heroInfo}>
             <Link href="/members" className={styles.backLink}>← {t('Back to Members', 'Volver a Miembros')}</Link>
             <h1>{player.name} {player.squadNumber ? <span className={styles.squadNo}>#{player.squadNumber}</span> : ''}</h1>
