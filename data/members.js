@@ -335,7 +335,7 @@ export const members = [
   {
     name: 'Simon Eldridge',
     slug: 'simon-eldridge',
-    nationality: '🇿🇲 Zambia',
+    nationality: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England',
     role: 'all-rounder',
     profileImage: '/images/members/simon-eldridge.jpg',
     stats: { matches: 1, runs: 0, wickets: 0 },

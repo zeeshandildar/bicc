@@ -36,25 +36,25 @@ export default function HomePage() {
 
           <div className={styles.discoveryGrid}>
             {[
-              { 
-                title: t('Our Story', 'Nuestra Historia'), 
+              {
+                title: t('Our Story', 'Nuestra Historia'),
                 desc: t('A rich history spanning over four decades in the heart of Catalonia.', 'Una rica historia que abarca más de cuatro décadas en el corazón de Cataluña.'),
                 link: '/story',
                 img: '/images/utility/bicclogo.png',
                 badge: t('Est. 1982', 'Fund. 1982')
               },
-              { 
-                title: t('Events & Tours', 'Eventos y Tours'), 
+              {
+                title: t('Events & Tours', 'Eventos y Tours'),
                 desc: t('From Menorca to Porto, our tours are legendary and our matches competitive.', 'Desde Menorca hasta Oporto, nuestros tours son legendarios y nuestros partidos competitivos.'),
                 link: '/events',
                 img: '/images/yakkian/AGM-2025.jpeg',
                 badge: t('Upcoming', 'Próximamente')
               },
-              { 
-                title: t('Our Members', 'Nuestros Miembros'), 
+              {
+                title: t('Our Members', 'Nuestros Miembros'),
                 desc: t('Meet the diverse family of 20+ nations that makes BICC special.', 'Conozca a la diversa familia de más de 20 naciones que hace que el BICC sea especial.'),
                 link: '/members',
-                img: '/images/hero/hero-image-3.jpg',
+                img: '/images/hero/hero-image-2.jpg',
                 badge: t('20+ Nations', '20+ Naciones')
               }
             ].map((item, i) => (
@@ -62,9 +62,9 @@ export default function HomePage() {
                 <Link href={item.link} style={{ textDecoration: 'none' }}>
                   <div className={styles.cardWrap}>
                     <div className={styles.imageContainer}>
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
+                      <img
+                        src={item.img}
+                        alt={item.title}
                         className={styles.zoomImage}
                       />
                       <span className={styles.badge}>
@@ -108,13 +108,13 @@ export default function HomePage() {
                 <Link href="/contact" className="btn-premium btn-gold">{t('Contact Us', 'Contáctenos')}</Link>
               </div>
             </ScrollAnimation>
-            
+
             <ScrollAnimation delay={200}>
               <div className={styles.philImageContainer}>
                 <div className={styles.imageDeco}></div>
-                <img 
-                  src="/images/yakkian/2026-champions.jpeg" 
-                  alt="BICC 2026 Champions" 
+                <img
+                  src="/images/yakkian/IMG-20220827-WA0011.jpg"
+                  alt="BICC 2026 Champions"
                   className={styles.philImage}
                 />
               </div>
