@@ -44,10 +44,23 @@ export const members = [
     ccId: '2096105'
   },
   {
+    name: 'Atul Pandita',
+    slug: 'atul-pandita',
+    nationality: '🇪🇸 Spain',
+    role: 'batsman',
+    stats: { matches: 6, runs: 24, wickets: 4 },
+    bio: 'Vice-President. Quickly become team taxi driver and middle-order anchor.',
+    squadNumber: 0,
+    debut: 'June 2025',
+    isBoardMember: true,
+    profileImage: '/images/members/atul-pandita.jpg',
+    ccId: '6113277'
+  },
+  {
     name: 'Anton Kritzinger',
     slug: 'anton-kritzinger',
     nationality: '🇿🇦 South Africa',
-    role: 'coach',
+    role: 'All Rounder',
     stats: { matches: 7, runs: 111, wickets: 2 },
     bio: 'Kit and Training secretary. Professional coach and player during the early 90s. Requires approximately 15 overs notice before he\'s ready to bowl.',
     squadNumber: 59,
@@ -69,30 +82,8 @@ export const members = [
     profileImage: '/images/members/william-camfield.jpg',
     ccId: '4455475'
   },
-  {
-    name: 'Atul Pandita',
-    slug: 'atul-pandita',
-    nationality: '🇪🇸 Spain',
-    role: 'batsman',
-    stats: { matches: 6, runs: 24, wickets: 4 },
-    bio: 'Vice-President. Quickly become team taxi driver and middle-order anchor.',
-    squadNumber: 0,
-    debut: 'June 2025',
-    isBoardMember: true,
-    profileImage: '/images/members/atul-pandita.jpg',
-    ccId: '6113277'
-  },
 
   // --- CLUB PLAYERS ---
-  {
-    name: 'Agnirudra Sikdar',
-    slug: 'agnirudra-sikdar',
-    nationality: '🇮🇳 India',
-    role: 'all-rounder',
-    profileImage: '/images/members/agnirudra-sikdar.jpg',
-    stats: { matches: 2, runs: 0, wickets: 0 },
-    ccId: '2540982'
-  },
   {
     name: 'Ali Osama',
     slug: 'ali-osama',
@@ -114,6 +105,24 @@ export const members = [
     ccId: '2082338'
   },
   {
+    name: 'Ashley Reynolds',
+    slug: 'ashley-reynolds',
+    nationality: '🇳🇿 New Zealand',
+    role: 'WKB',
+    profileImage: '/images/members/ashley-reynolds.jpg',
+    squadNumber: 800,
+    ccId: '????'
+  },
+  {
+    name: 'Agnirudra Sikdar',
+    slug: 'agnirudra-sikdar',
+    nationality: '🇮🇳 India',
+    role: 'all-rounder',
+    stats: { matches: 2, runs: 0, wickets: 0 },
+    isNewMember: true,
+    ccId: '2540982'
+  },
+  {
     name: 'Burhan Ejaz',
     slug: 'burhan-ejaz',
     nationality: '🇵🇰 Pakistan',
@@ -129,6 +138,7 @@ export const members = [
     nationality: '🇬🇧 England',
     role: 'batsman',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6571855'
   },
   {
@@ -166,6 +176,7 @@ export const members = [
     nationality: '🇬🇧 England',
     role: 'batsman',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6555576'
   },
   {
@@ -203,6 +214,7 @@ export const members = [
     nationality: '🌍 International',
     role: 'batsman',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6553019'
   },
   {
@@ -245,11 +257,21 @@ export const members = [
     ccId: '4454512'
   },
   {
+    name: 'Mohsin Nawaz',
+    slug: 'mohsin-nawaz',
+    nationality: '🇪🇸 Spain',
+    role: 'bowler',
+    squadNumber: 0,
+    profileImage: '/images/members/mohsin-nawaz.jpg',
+    ccId: '????'
+  },
+  {
     name: 'Muhammad Shoaib',
     slug: 'muhammad-shoaib',
     nationality: '🇵🇰 Pakistan',
     role: 'all-rounder',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6547940'
   },
   {
@@ -273,20 +295,12 @@ export const members = [
     ccId: '3381604'
   },
   {
-    name: 'Prakash Bhai',
-    slug: 'prakash-bhai',
-    nationality: '🇮🇳 India',
-    role: 'all-rounder',
-    stats: { matches: 0, runs: 0, wickets: 0 },
-    squadNumber: 12,
-    ccId: '6564829'
-  },
-  {
     name: 'Pranav Binesh Kumar Pillai',
     slug: 'pranav-binesh-kumar-pillai',
     nationality: '🇮🇳 India',
     role: 'batsman',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6571854'
   },
   {
@@ -295,6 +309,7 @@ export const members = [
     nationality: '🇵🇰 Pakistan',
     role: 'All-rounder',
     stats: { matches: 0, runs: 0, wickets: 0 },
+    isNewMember: true,
     ccId: '6571856'
   },
   {
@@ -342,7 +357,7 @@ export const members = [
     name: 'Tom Coulthard',
     slug: 'tom-coulthard',
     nationality: '🇬🇧 England',
-    role: 'batsman',
+    role: 'all rounder',
     profileImage: '/images/members/tom-coulthard.jpg',
     stats: { matches: 5, runs: 28, wickets: 2 },
     squadNumber: 5,
