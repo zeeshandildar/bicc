@@ -15,31 +15,68 @@ import { siteConfig } from '../../data/siteConfig';
  * 3. A dynamic stats strip at the bottom.
  */
 
-const HERO_IMAGES = [
+const DEFAULT_HERO_IMAGES = [
   '/images/hero/hero-image-1.jpg',
   '/images/hero/hero-image-2.jpg',
   '/images/hero/hero-image-3.jpg',
   '/images/hero/hero-image-4.jpg',
   '/images/hero/hero-image-5.jpg',
   '/images/hero/hero-image-6.jpg',
-  '/images/hero/hero-image-7.jpg'
+  '/images/hero/hero-image-7.jpg',
+  '/images/hero/hero-image-8.jpg'
 ];
 
 export default function Hero() {
+  const [heroImages, setHeroImages] = useState(DEFAULT_HERO_IMAGES);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(-1);
   const contentRef = useRef(null);
   const { t } = useLanguage();
 
+  // Load hero images dynamically from public/images/hero via API.
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadHeroImages = async () => {
+      try {
+        const res = await fetch('/api/hero-images');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (isMounted && Array.isArray(data.images) && data.images.length > 0) {
+          setHeroImages(data.images);
+        }
+      } catch (error) {
+        // Keep fallback images if dynamic loading fails.
+      }
+    };
+
+    loadHeroImages();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   // Background Slideshow Logic
   useEffect(() => {
+    if (heroImages.length < 2) return;
+
     const timer = setInterval(() => {
-      setPrevImageIndex(currentImageIndex);
-      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+      setCurrentImageIndex((prev) => {
+        setPrevImageIndex(prev);
+        return (prev + 1) % heroImages.length;
+      });
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [currentImageIndex]);
+  }, [heroImages.length]);
+
+  useEffect(() => {
+    if (currentImageIndex >= heroImages.length) {
+      setCurrentImageIndex(0);
+      setPrevImageIndex(-1);
+    }
+  }, [currentImageIndex, heroImages.length]);
 
   // Scroll Reveal Observer
   useEffect(() => {
@@ -65,7 +102,7 @@ export default function Hero() {
     <section className={styles.hero}>
       {/* Animated Background Layers */}
       <div className={styles.backgroundWrapper}>
-        {HERO_IMAGES.map((img, idx) => {
+        {heroImages.map((img, idx) => {
           let className = styles.backgroundLayer;
           if (idx === currentImageIndex) className += ` ${styles.visible}`;
           if (idx === prevImageIndex) className += ` ${styles.prev}`;

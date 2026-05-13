@@ -34,9 +34,13 @@
 }
 
 .logoImage {
-  height: 44px;
+  height: clamp(56px, 6vw, 72px);
   width: auto;
   display: block;
+}
+
+.scrolled .logoImage {
+  height: 54px;
 }
 
 .logoText {
