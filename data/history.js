@@ -31,12 +31,14 @@ export const history = {
   ],
 
   milestones: [
-    { year: 1982, event: "Founded by Philip Paterson Smith MBE." },
-    { year: 1995, event: "Spanish League & Cup Double Winners." },
-    { year: 1997, event: "Historic tour to China (First European side)." },
+    { year: 1982, event: "Club founded by Philip Paterson Smith MBE" },
+    { year: 1995, event: "Spanish League & Cup Double Winners" },
+    { year: 1997, event: "First European side to tour China" },
     { year: 2005, event: "Renamed to Barcelona International Cricket Club." },
+    { year: 2005, event: "Rob Paterson becomes President." },
     { year: 2012, event: "Established home at Montjuïc (Julià de Campmany)." },
-    { year: 2021, event: "First AGM; Sam Phillipps elected President." },
+    { year: 2018, event: "Damien McMullen becomes President." },
+    { year: 2021, event: "First AGM, Sam Phillipps elected President." },
     { year: 2025, event: "ECCL 40-over Champions (Bhosball era)." }
   ],
 

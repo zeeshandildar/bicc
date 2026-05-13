@@ -53,7 +53,6 @@ export default function EventDetailPage({ params }) {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 20%, rgba(0,0,0,0.8) 100%)' }}></div>
         <div className="container" style={{ position: 'absolute', bottom: '60px', left: '50%', transform: 'translateX(-50%)', width: '100%' }}>
           <ScrollAnimation>
-            <div className="badge" style={{ marginBottom: '20px', background: 'var(--accent-red)', color: 'white' }}>{event.type.toUpperCase()}</div>
             <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'white', marginBottom: '16px' }}>{event.title}</h1>
             <div style={{ display: 'flex', gap: '24px', color: 'rgba(255,255,255,0.8)', fontSize: '1.2rem' }}>
               <span>📅 {dateStr}</span>

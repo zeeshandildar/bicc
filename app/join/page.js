@@ -11,7 +11,19 @@ export default function JoinPage() {
       <section style={{ padding: '80px 0 40px', background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <ScrollAnimation>
-            <div className="badge" style={{ marginBottom: '16px' }}>{t('🏏 Welcome', '🏏 Bienvenidos')}</div>
+            <div style={{ marginBottom: '16px' }}>
+              <img
+                src="/images/utility/bicclogo.png"
+                alt="BICC crest"
+                style={{
+                  width: '156px',
+                  height: '156px',
+                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto'
+                }}
+              />
+            </div>
             <h1>{t('Become a', 'Conviértete en')} <span className="gradient-text">{t('Member', 'Miembro')}</span></h1>
             <p style={{ maxWidth: '600px', margin: '20px auto 0', color: 'var(--text-muted)', fontSize: '1.1rem' }}>
               {t(
@@ -19,6 +31,20 @@ export default function JoinPage() {
                 '¿Listo para unirte a la familia de críquet más internacional de Barcelona? Completa el formulario a continuación y nos pondremos en contacto.'
               )}
             </p>
+            <div
+              style={{
+                margin: '24px auto 0',
+                maxWidth: '720px',
+                padding: '16px 20px',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: '14px',
+                background: 'linear-gradient(135deg, rgba(143, 21, 56, 0.22), rgba(255, 215, 0, 0.12))'
+              }}
+            >
+              <p style={{ margin: 0, color: 'var(--text-primary)', fontWeight: 600, letterSpacing: '0.2px' }}>
+                {t('Join BICC and represent a truly international cricket club in Barcelona.', 'Únete al BICC y representa a un club de críquet verdaderamente internacional en Barcelona.')}
+              </p>
+            </div>
           </ScrollAnimation>
         </div>
       </section>

@@ -40,14 +40,14 @@ export default function HomePage() {
                 title: t('Our Story', 'Nuestra Historia'), 
                 desc: t('A rich history spanning over four decades in the heart of Catalonia.', 'Una rica historia que abarca más de cuatro décadas en el corazón de Cataluña.'),
                 link: '/story',
-                img: '/images/events/menorca-6/menorca-6-team.png',
+                img: '/images/utility/bicclogo.png',
                 badge: t('Est. 1982', 'Fund. 1982')
               },
               { 
                 title: t('Events & Tours', 'Eventos y Tours'), 
                 desc: t('From Menorca to Porto, our tours are legendary and our matches competitive.', 'Desde Menorca hasta Oporto, nuestros tours son legendarios y nuestros partidos competitivos.'),
                 link: '/events',
-                img: '/images/stories/2023-prize-ceremony-2_orig (1).jpg',
+                img: '/images/yakkian/AGM-2025.jpeg',
                 badge: t('Upcoming', 'Próximamente')
               },
               { 
@@ -113,8 +113,8 @@ export default function HomePage() {
               <div className={styles.philImageContainer}>
                 <div className={styles.imageDeco}></div>
                 <img 
-                  src="/images/events/menorca-6/menorca-6-field.png" 
-                  alt="Cricket Spirit" 
+                  src="/images/yakkian/2026-champions.jpeg" 
+                  alt="BICC 2026 Champions" 
                   className={styles.philImage}
                 />
               </div>

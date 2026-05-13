@@ -64,7 +64,7 @@ export default function StoryPage() {
       {/* Full Narrative Section */}
       <section className="section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" style={{ fontSize: '1.5rem', textAlign: 'center', margin: '30px' }}>
             <h2>{t('The Full', 'Toda la')} <span className="gradient-text">{t('Story', 'Historia')}</span></h2>
           </div>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -88,7 +88,7 @@ export default function StoryPage() {
       {/* Timeline */}
       <section className="section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" style={{ fontSize: '1.5rem', textAlign: 'center', marginTop: '60px' }}>
             <h2>{t('Key', 'Hitos')} <span className="gradient-text">{t('Milestones', 'Clave')}</span></h2>
           </div>
           <Timeline milestones={history.milestones} />

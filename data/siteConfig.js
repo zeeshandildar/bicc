@@ -23,13 +23,8 @@ export const siteConfig = {
 
   // ── Training & Hours ──────────────────────────────────────────
   training: [
-    { day: 'Monday',    dayEs: 'Lunes',     time: 'Closed' },
-    { day: 'Tuesday',   dayEs: 'Martes',    time: 'Closed' },
-    { day: 'Wednesday', dayEs: 'Miércoles', time: 'Closed' },
-    { day: 'Thursday',  dayEs: 'Jueves',    time: 'Closed' },
-    { day: 'Friday',    dayEs: 'Viernes',   time: 'Closed' },
-    { day: 'Saturday',  dayEs: 'Sábado',    time: '9:00 AM – 7:00 PM' },
-    { day: 'Sunday',    dayEs: 'Domingo',   time: '9:00 AM – 7:00 PM' },
+    { day: 'Wednesday', dayEs: 'Miércoles', time: 'Evening 6:00 PM – 8:00 PM' },
+    { day: 'Saturday',  dayEs: 'Sábado',    time: 'Morning 10:30 AM – 1:00 PM' },
   ],
 
 

@@ -27,7 +27,7 @@ export const members = [
     squadNumber: 13,
     debut: 'October 2019',
     isBoardMember: true,
-    profileImage: '/images/members/leandro-lyons.jpg',
+    profileImage: '/images/members/leandro-lyons.jpeg',
     ccId: '2082352'
   },
   {
@@ -146,7 +146,7 @@ export const members = [
     slug: 'caspar-oliver',
     nationality: '🇱🇰 Sri Lanka',
     role: 'premium bowler',
-    profileImage: '/images/members/caspar-oliver.jpg',
+    profileImage: '/images/members/caspar-oliver.jpeg',
     stats: { matches: 6, runs: 30, wickets: 3 },
     squadNumber: 3,
     ccId: '4455476'
@@ -184,7 +184,6 @@ export const members = [
     slug: 'james-bentley',
     nationality: '🇦🇺 Australia',
     role: 'all-rounder',
-    isFormerMember: true,
     profileImage: '/images/members/james-bentley.jpg',
     stats: { matches: 0, runs: 0, wickets: 0 }
   },
@@ -262,7 +261,7 @@ export const members = [
     nationality: '🇪🇸 Spain',
     role: 'bowler',
     squadNumber: 0,
-    profileImage: '/images/members/mohsin-nawaz.jpg',
+    profileImage: '/images/members/mohsin-nawaz.jpeg',
     ccId: '????'
   },
   {
@@ -311,6 +310,16 @@ export const members = [
     stats: { matches: 0, runs: 0, wickets: 0 },
     isNewMember: true,
     ccId: '6571856'
+  },
+  {
+    name: 'Dave Martin',
+    slug: 'dave-martin',
+    nationality: '🇦🇺 Australia',
+    role: 'Umpire',
+    isFormerMember: true,
+    profileImage: '/images/members/dave-martin.jpg',
+    squadNumber: 0,
+    ccId: '????'
   },
   {
     name: 'Shane Lightley',
@@ -406,7 +415,7 @@ export const members = [
     slug: 'vrishab-kandral',
     nationality: '🇮🇳 India',
     role: 'batsman',
-    profileImage: '/images/members/vrishab-kandral.jpg',
+    profileImage: '/images/members/vrishab-kandral.jpeg',
     stats: { matches: 10, runs: 119, wickets: 2 },
     squadNumber: 95,
     ccId: '4454515'

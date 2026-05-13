@@ -102,6 +102,24 @@ export const awards = [
 
 export const hallOfShame = [
   {
+    caption: "What's the craic, lads?",
+    captionEs: '¿Qué tal, chavales?',
+    image: '/images/yakkian/init-brev.jpeg',
+    rotation: '3deg'
+  },
+  {
+    caption: 'Umi caught napping for #@%',
+    captionEs: 'Umi pillado durmiendo para #@%',
+    image: '/images/yakkian/sleeping-umi.jpeg',
+    rotation: '-3deg'
+  },
+  {
+    caption: 'Sweet Memories of Menorca',
+    captionEs: 'Dulces Recuerdos de Menorca',
+    image: '/images/yakkian/menorca-2024-random-1.jpeg',
+    rotation: '2deg'
+  },
+  {
     caption: 'Wrong Island.',
     captionEs: 'Isla Equivocada.',
     image: '/images/yakkian/WhatsApp%20Image%202026-05-09%20at%2012.50.28%20PM.jpeg',
