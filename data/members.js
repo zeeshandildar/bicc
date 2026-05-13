@@ -106,7 +106,7 @@ export const members = [
   {
     name: 'Anish Shindore',
     slug: 'anish-shindore',
-    nationality: '🇮🇳 India',
+    nationality: '🇪🇸 Spain',
     role: 'all-rounder',
     profileImage: '/images/members/anish-shindore.jpg',
     stats: { matches: 6, runs: 13, wickets: 2 },
@@ -134,7 +134,7 @@ export const members = [
   {
     name: 'Caspar Oliver',
     slug: 'caspar-oliver',
-    nationality: '🇬🇧 England',
+    nationality: '🇱🇰 Sri Lanka',
     role: 'premium bowler',
     profileImage: '/images/members/caspar-oliver.jpg',
     stats: { matches: 6, runs: 30, wickets: 3 },
@@ -311,7 +311,7 @@ export const members = [
   {
     name: 'Simon Eldridge',
     slug: 'simon-eldridge',
-    nationality: '🇬🇧 England',
+    nationality: '🇿🇲 Zambia',
     role: 'all-rounder',
     profileImage: '/images/members/simon-eldridge.jpg',
     stats: { matches: 1, runs: 0, wickets: 0 },
@@ -369,7 +369,7 @@ export const members = [
   {
     name: 'Umer Razi',
     slug: 'umer-razi',
-    nationality: '🇵🇰 Pakistan',
+    nationality: '🇵🇰 Spain',
     role: 'batsman',
     profileImage: '/images/members/umer-razi.jpg',
     stats: { matches: 34, runs: 737, wickets: 20 },
@@ -403,7 +403,7 @@ export const members = [
     role: 'all-rounder',
     stats: { matches: 11, runs: 125, wickets: 13 },
     squadNumber: 69,
-    profileImage: '/images/members/zeeshan-dildar.jpg',
+    profileImage: '/images/members/zeeshan-dildar.png',
     ccId: '3473620'
   }
 ];
