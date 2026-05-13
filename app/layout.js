@@ -24,6 +24,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/images/hero/hero-image-1.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+      </head>
       <body>
         <LanguageProvider>
           <Navbar />

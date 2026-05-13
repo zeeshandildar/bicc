@@ -27,35 +27,41 @@ const DEFAULT_HERO_IMAGES = [
 ];
 
 export default function Hero() {
-  const [heroImages, setHeroImages] = useState(DEFAULT_HERO_IMAGES);
+  const heroImages = DEFAULT_HERO_IMAGES;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(-1);
   const contentRef = useRef(null);
   const { t } = useLanguage();
 
-  // Load hero images dynamically from public/images/hero via API.
+  // Defer non-critical hero image fetches until the browser is idle.
   useEffect(() => {
-    let isMounted = true;
+    if (heroImages.length < 2) return;
 
-    const loadHeroImages = async () => {
-      try {
-        const res = await fetch('/api/hero-images');
-        if (!res.ok) return;
-        const data = await res.json();
-        if (isMounted && Array.isArray(data.images) && data.images.length > 0) {
-          setHeroImages(data.images);
-        }
-      } catch (error) {
-        // Keep fallback images if dynamic loading fails.
-      }
+    let timeoutId;
+    let idleId;
+
+    const preloadRemainingImages = () => {
+      heroImages.slice(1).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
     };
 
-    loadHeroImages();
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(preloadRemainingImages);
+    } else {
+      timeoutId = window.setTimeout(preloadRemainingImages, 0);
+    }
 
     return () => {
-      isMounted = false;
+      if (idleId && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
     };
-  }, []);
+  }, [heroImages]);
 
   // Background Slideshow Logic
   useEffect(() => {
