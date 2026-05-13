@@ -28,14 +28,14 @@ export default function YakkianPage() {
 
   return (
     <div className="page-enter" style={{ paddingTop: 'var(--nav-h)' }}>
-      <section className="section-padding" style={{ background: 'linear-gradient(180deg, #0d121f 0%, #050810 100%)' }}>
+      <section className="section-padding" style={{ paddingTop: '48px', paddingBottom: '20px', background: 'linear-gradient(180deg, #0d121f 0%, #050810 100%)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <ScrollAnimation>
-            <h1 className="bebas" style={{ fontSize: '5rem', marginBottom: '16px' }}>
+            <h1 className="bebas" style={{ fontSize: '4.6rem', marginBottom: '8px' }}>
               {t('The', 'El')} <span className="gradient-red">{t('Yakkian', 'Yakkian')}</span>
             </h1>
-            <div style={{ width: '100px', height: '4px', background: 'var(--accent-red)', margin: '0 auto 24px' }}></div>
-            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-dim)', fontSize: '1.2rem' }}>
+            <div style={{ width: '100px', height: '4px', background: 'var(--accent-red)', margin: '0 auto 12px' }}></div>
+            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-dim)', fontSize: '1.1rem' }}>
               {t('Club humor, legendary quotes, and the lighter side of life at BICC.', 'Humor del club, citas legendarias y el lado más divertido de la vida en el BICC.')}
             </p>
           </ScrollAnimation>
@@ -43,17 +43,17 @@ export default function YakkianPage() {
       </section>
 
       {/* Hall of Shame */}
-      <section className="section-padding" style={{ background: '#0a0a0a' }}>
+      <section className="section-padding" style={{ paddingTop: '16px', paddingBottom: '32px', background: '#0a0a0a' }}>
         <div className="container">
           <ScrollAnimation>
-            <h2 className="bebas" style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '16px', color: 'var(--accent-gold)' }}>
+            <h2 className="bebas" style={{ fontSize: '2.6rem', textAlign: 'center', marginBottom: '8px', color: 'var(--accent-gold)' }}>
               {t('Hall of Shame', 'Salón de la Vergüenza')}
             </h2>
-            <p style={{ textAlign: 'center', color: 'var(--text-dim)', marginBottom: '40px' }}>
+            <p style={{ textAlign: 'center', color: 'var(--text-dim)', marginBottom: '20px' }}>
               {t('Moments we wish we could forget, immortalized forever.', 'Momentos que desearíamos olvidar, inmortalizados para siempre.')}
             </p>
           </ScrollAnimation>
-          <div className={styles.polaroidGrid}>
+          <div className={styles.polaroidGrid} style={{ paddingTop: '12px' }}>
             {localizedShame.map((item, i) => (
               <ScrollAnimation key={i} delay={i * 150} animation="fade-in">
                 <div className={styles.polaroid} style={{ transform: `rotate(${item.rotation})` }}>
@@ -110,10 +110,10 @@ export default function YakkianPage() {
                     {yak.type}
                   </div>
                   <h3 style={{ marginBottom: '20px', fontSize: '1.4rem', color: 'white' }}>{yak.title}</h3>
-                  <p style={{ 
-                    fontStyle: 'italic', 
-                    fontSize: '1.1rem', 
-                    color: 'var(--text-main)', 
+                  <p style={{
+                    fontStyle: 'italic',
+                    fontSize: '1.1rem',
+                    color: 'var(--text-main)',
                     lineHeight: '1.7',
                     marginBottom: '24px',
                     position: 'relative',
