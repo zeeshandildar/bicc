@@ -79,8 +79,9 @@ export default function MemberCard({ member }) {
             alt={member.name} 
             fill
             className={styles.image}
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 250px"
+            priority={member.isBoardMember || member.isNewMember}
           />
           <div className={styles.overlay}></div>
           <div className={styles.roleBadge}>{member.role}</div>

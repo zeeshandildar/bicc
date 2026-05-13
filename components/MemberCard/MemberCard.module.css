@@ -38,9 +38,10 @@
 
 .imageWrap {
   position: relative;
-  height: 280px;
+  height: 300px;
   overflow: hidden;
   transform: translateZ(15px);
+  background: var(--bg-elevated);
 }
 
 .image {
@@ -57,7 +58,8 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg-card) 5%, transparent 60%);
+  background: linear-gradient(to top, var(--bg-card) 0%, transparent 40%);
+  opacity: 0.8;
 }
 
 .roleBadge {
@@ -76,10 +78,10 @@
 }
 
 .info {
-  padding: 24px;
+  padding: 20px 16px;
   text-align: center;
   transform: translateZ(25px);
-  background: var(--bg-card); /* Ensure text is readable over the image if it overflows, though it shouldn't here */
+  background: var(--bg-card);
 }
 
 .nationality {

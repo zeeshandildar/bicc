@@ -1,6 +1,5 @@
 'use client';
 import MemberCard from '../../components/MemberCard/MemberCard';
-import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
 // ✏️ TO ADD / EDIT MEMBERS: open data/members.js
 import { members as membersData } from '../../data/members';
@@ -51,10 +50,8 @@ export default function MembersPage() {
             </h2>
           </ScrollAnimation>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
-            {boardMembers.map((m, i) => (
-              <ScrollAnimation key={m.slug} delay={i * 50}>
-                <MemberCard member={m} />
-              </ScrollAnimation>
+            {boardMembers.map((m) => (
+              <MemberCard key={m.slug} member={m} />
             ))}
           </div>
         </div>
@@ -69,10 +66,8 @@ export default function MembersPage() {
             </h2>
           </ScrollAnimation>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
-            {currentMembers.map((m, i) => (
-              <ScrollAnimation key={m.slug} delay={i * 20}>
-                <MemberCard member={m} />
-              </ScrollAnimation>
+            {currentMembers.map((m) => (
+              <MemberCard key={m.slug} member={m} />
             ))}
           </div>
         </div>
@@ -87,10 +82,8 @@ export default function MembersPage() {
             </h2>
           </ScrollAnimation>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
-            {newMembers.map((m, i) => (
-              <ScrollAnimation key={m.slug} delay={i * 20}>
-                <MemberCard member={m} />
-              </ScrollAnimation>
+            {newMembers.map((m) => (
+              <MemberCard key={m.slug} member={m} />
             ))}
           </div>
         </div>
@@ -105,10 +98,8 @@ export default function MembersPage() {
             </h2>
           </ScrollAnimation>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
-            {formerMembers.map((m, i) => (
-              <ScrollAnimation key={m.slug} delay={i * 20}>
-                <MemberCard member={m} />
-              </ScrollAnimation>
+            {formerMembers.map((m) => (
+              <MemberCard key={m.slug} member={m} />
             ))}
           </div>
         </div>
