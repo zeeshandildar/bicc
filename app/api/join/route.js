@@ -14,7 +14,7 @@ function isValidEmail(email) {
   return /\S+@\S+\.\S+/.test(email);
 }
 
-async function sendJoinNotification({ fullName, email, phone, age, nationality, playingRole, experienceLevel, message }) {
+async function sendJoinNotification({ fullName, email, phone, age, nationality, livesInBarcelona, playingRole, experienceLevel, message }) {
   const roleLabels = {
     batsman: 'Batsman',
     bowler: 'Bowler',
@@ -41,6 +41,7 @@ async function sendJoinNotification({ fullName, email, phone, age, nationality, 
       nationality: escapeHtml(nationality || '—'),
       playingRole: escapeHtml(roleLabels[playingRole] || playingRole),
       experienceLevel: escapeHtml(experienceLabels[experienceLevel] || experienceLevel),
+      livesInBarcelona: escapeHtml(livesInBarcelona || 'yes'),
       message: escapeHtml(message || '—'),
     },
   });
@@ -55,6 +56,7 @@ export async function POST(request) {
       phone = '',
       age = '',
       nationality = '',
+      livesInBarcelona = 'yes',
       playingRole = 'other',
       experienceLevel = 'beginner',
       message = '',
@@ -86,6 +88,7 @@ export async function POST(request) {
       phone,
       age,
       nationality: normalizedNationality,
+      livesInBarcelona,
       playingRole,
       experienceLevel,
       message,
