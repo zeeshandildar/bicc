@@ -132,10 +132,11 @@
 
 .philImageContainer {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px; /* Spacing between image and gold frame */
 }
 
 .imageDeco {
@@ -152,14 +153,9 @@
 }
 
 .philImage {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-lg);
-  position: relative;
-  z-index: 2;
 }
 
 @media (max-width: 768px) {
