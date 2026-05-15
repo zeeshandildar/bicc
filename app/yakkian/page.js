@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
 import { yakkian as yakkianData, awards, hallOfShame } from '../../data/yakkian';
 import styles from './Yakkian.module.css';

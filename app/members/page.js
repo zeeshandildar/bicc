@@ -1,5 +1,6 @@
 'use client';
 import MemberCard from '../../components/MemberCard/MemberCard';
+import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
 // ✏️ TO ADD / EDIT MEMBERS: open data/members.js
 import { members as membersData } from '../../data/members';

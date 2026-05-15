@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import EventCard from '../../components/EventCard/EventCard';
+import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
 // ✏️ TO ADD / EDIT EVENTS: open data/events.js
 import { events as eventsData } from '../../data/events';
