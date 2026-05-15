@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '../../lib/LanguageContext';
 import styles from './Navbar.module.css';
@@ -33,10 +34,13 @@ export default function Navbar() {
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`${styles.container} container`}>
         <Link href="/" className={styles.logo}>
-          <img
+          <Image
             src="/images/utility/bicclogo.png"
             alt="BICC logo"
+            width={60}
+            height={60}
             className={styles.logoImage}
+            priority
           />
         </Link>
 

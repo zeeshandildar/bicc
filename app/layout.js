@@ -3,6 +3,27 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { LanguageProvider } from '../lib/LanguageContext';
 import { siteConfig } from '../data/siteConfig';
+import { Outfit, Inter, Bebas_Neue } from 'next/font/google';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-outfit',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-bebas',
+  display: 'swap',
+});
 
 /**
  * Root Layout
@@ -23,7 +44,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${inter.variable} ${bebasNeue.variable}`}>
       <head>
         <link
           rel="preload"
