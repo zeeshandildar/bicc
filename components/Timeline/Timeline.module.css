@@ -142,7 +142,7 @@
 @media (max-width: 768px) {
   .timeline::before,
   .timeline::after {
-    left: 20px;
+    left: 20px !important;
   }
   .timelineItem,
   .timelineItem:nth-child(even) {
