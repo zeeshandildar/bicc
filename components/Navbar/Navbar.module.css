@@ -220,7 +220,10 @@
 
 @media (max-width: 1250px) {
   .desktopLinks { display: none; }
-  .mobileToggle { display: flex; }
+  .mobileToggle { 
+    display: flex; 
+    margin-left: auto;
+  }
 }
 
 /* Language Switcher Dropdown */
