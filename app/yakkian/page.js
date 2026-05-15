@@ -1,5 +1,6 @@
 'use client';
 import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
+import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 import { yakkian as yakkianData, awards, hallOfShame } from '../../data/yakkian';
 import styles from './Yakkian.module.css';
@@ -57,7 +58,16 @@ export default function YakkianPage() {
             {localizedShame.map((item, i) => (
               <ScrollAnimation key={i} delay={i * 150} animation="fade-in">
                 <div className={styles.polaroid} style={{ transform: `rotate(${item.rotation})` }}>
-                  <img src={item.image} alt={item.caption} className={styles.polaroidImg} />
+                  <div className={styles.polaroidImgWrap}>
+                    <Image 
+                      src={item.image} 
+                      alt={item.caption} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, 300px"
+                      className={styles.polaroidImg}
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
                   <div className={styles.polaroidCaption}>{item.caption}</div>
                 </div>
               </ScrollAnimation>
@@ -79,7 +89,14 @@ export default function YakkianPage() {
               <ScrollAnimation key={i} delay={i * 150} animation="slide-up">
                 <div className={styles.awardCard}>
                   <div className={styles.awardImageWrap}>
-                    <img src={award.image} alt={award.title} className={styles.awardImage} />
+                    <Image 
+                      src={award.image} 
+                      alt={award.title} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className={styles.awardImage}
+                      style={{ objectFit: 'cover' }}
+                    />
                   </div>
                   <div className={styles.awardContent}>
                     <div className={styles.awardBadge}>★ {t('Prestigious Award', 'Premio Prestigioso')} ★</div>

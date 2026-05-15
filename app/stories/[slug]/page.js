@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { use } from 'react';
 import ScrollAnimation from '../../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../../lib/LanguageContext';
@@ -119,7 +120,14 @@ export default function StoryDetailPage({ params }) {
     <div className="page-enter" style={{ paddingTop: 'var(--nav-height)' }}>
       {/* Hero Image */}
       <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
-        <img src={story.coverImage} alt={story.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <Image 
+          src={story.coverImage} 
+          alt={story.title} 
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover' }} 
+        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 30%, var(--bg-primary) 100%)' }}></div>
       </div>
 

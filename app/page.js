@@ -2,6 +2,7 @@
 import Hero from '../components/Hero/Hero';
 import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../lib/LanguageContext';
 import styles from './Home.module.css';
 import { siteConfig } from '../data/siteConfig';
@@ -62,10 +63,13 @@ export default function HomePage() {
                 <Link href={item.link} style={{ textDecoration: 'none' }}>
                   <div className={styles.cardWrap}>
                     <div className={styles.imageContainer}>
-                      <img
+                      <Image
                         src={item.img}
                         alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className={styles.zoomImage}
+                        style={{ objectFit: 'cover' }}
                       />
                       <span className={styles.badge}>
                         {item.badge}
@@ -112,10 +116,13 @@ export default function HomePage() {
             <ScrollAnimation delay={200}>
               <div className={styles.philImageContainer}>
                 <div className={styles.imageDeco}></div>
-                <img
+                <Image
                   src="/images/yakkian/IMG-20220827-WA0011.jpg"
                   alt="BICC 2026 Champions"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.philImage}
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
             </ScrollAnimation>

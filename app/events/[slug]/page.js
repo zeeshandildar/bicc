@@ -1,6 +1,7 @@
 'use client';
 import { use, useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from '../../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../../lib/LanguageContext';
 import { events as eventsData } from '../../../data/events';
@@ -49,7 +50,14 @@ export default function EventDetailPage({ params }) {
     <div className="page-enter" style={{ paddingTop: 'var(--nav-height)' }}>
       {/* Hero */}
       <div style={{ position: 'relative', height: '500px', overflow: 'hidden' }}>
-        <img src={event.images?.[0]} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <Image 
+          src={event.images?.[0]} 
+          alt={event.title} 
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover' }} 
+        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 20%, rgba(0,0,0,0.8) 100%)' }}></div>
         <div className="container" style={{ position: 'absolute', bottom: '60px', left: '50%', transform: 'translateX(-50%)', width: '100%' }}>
           <ScrollAnimation>
@@ -77,18 +85,20 @@ export default function EventDetailPage({ params }) {
                   <h3 className="bebas" style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{t('Tour Gallery', 'Galería del Tour')}</h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '16px' }}>
                     {event.images.map((img, idx) => (
-                      <div 
-                        key={idx} 
-                        style={{ aspectRatio: '1/1', overflow: 'hidden', borderRadius: '8px', cursor: 'pointer' }} 
-                        className="gallery-item"
-                        onClick={() => setSelectedImage(idx)}
-                      >
-                        <img 
-                          src={img} 
-                          alt={`${event.title} ${idx + 1}`} 
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }} 
-                        />
-                      </div>
+                        <div 
+                          key={idx} 
+                          style={{ aspectRatio: '1/1', overflow: 'hidden', borderRadius: '8px', cursor: 'pointer', position: 'relative' }} 
+                          className="gallery-item"
+                          onClick={() => setSelectedImage(idx)}
+                        >
+                          <Image 
+                            src={img} 
+                            alt={`${event.title} ${idx + 1}`} 
+                            fill
+                            sizes="(max-width: 768px) 33vw, 200px"
+                            style={{ objectFit: 'cover', transition: 'transform 0.3s ease' }} 
+                          />
+                        </div>
                     ))}
                   </div>
                 </div>

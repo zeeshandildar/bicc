@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 import styles from './Hero.module.css';
 import { siteConfig } from '../../data/siteConfig';
@@ -8,81 +9,34 @@ import { siteConfig } from '../../data/siteConfig';
 /**
  * Hero Component
  * --------------
- * This is the main banner on the home page.
- * It features:
- * 1. An auto-rotating background slideshow.
- * 2. Animated title and call-to-action buttons.
- * 3. A dynamic stats strip at the bottom.
+ * Optimized for performance using next/image.
+ * Features an auto-rotating background slideshow.
  */
 
-const DEFAULT_HERO_IMAGES = [
-  '/images/hero/default-hero-image.jpg',
+const HERO_IMAGES = [
   '/images/hero/hero-image-1.jpg',
-  '/images/hero/hero-image-2.jpg',
   '/images/hero/hero-image-3.jpg',
   '/images/hero/hero-image-4.jpg',
-  '/images/hero/hero-image-5.jpg',
-  '/images/hero/hero-image-6.jpg',
   '/images/hero/hero-image-7.jpg'
 ];
 
 export default function Hero() {
-  const heroImages = DEFAULT_HERO_IMAGES;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(-1);
   const contentRef = useRef(null);
   const { t } = useLanguage();
 
-  // Defer non-critical hero image fetches until the browser is idle.
-  useEffect(() => {
-    if (heroImages.length < 2) return;
-
-    let timeoutId;
-    let idleId;
-
-    const preloadRemainingImages = () => {
-      heroImages.slice(1).forEach((src) => {
-        const img = new Image();
-        img.src = src;
-      });
-    };
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(preloadRemainingImages);
-    } else {
-      timeoutId = window.setTimeout(preloadRemainingImages, 0);
-    }
-
-    return () => {
-      if (idleId && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-  }, [heroImages]);
-
   // Background Slideshow Logic
   useEffect(() => {
-    if (heroImages.length < 2) return;
-
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => {
         setPrevImageIndex(prev);
-        return (prev + 1) % heroImages.length;
+        return (prev + 1) % HERO_IMAGES.length;
       });
-    }, 5000);
+    }, 6000); // Slightly slower transition for better feel
 
     return () => clearInterval(timer);
-  }, [heroImages.length]);
-
-  useEffect(() => {
-    if (currentImageIndex >= heroImages.length) {
-      setCurrentImageIndex(0);
-      setPrevImageIndex(-1);
-    }
-  }, [currentImageIndex, heroImages.length]);
+  }, []);
 
   // Scroll Reveal Observer
   useEffect(() => {
@@ -106,29 +60,41 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      {/* Animated Background Layers */}
+      {/* Optimized Background Layers */}
       <div className={styles.backgroundWrapper}>
-        {heroImages.map((img, idx) => {
+        {HERO_IMAGES.map((img, idx) => {
           let className = styles.backgroundLayer;
           if (idx === currentImageIndex) className += ` ${styles.visible}`;
           if (idx === prevImageIndex) className += ` ${styles.prev}`;
 
+          // Only render current, previous, and next images to save memory
+          const isRelevant = 
+            idx === currentImageIndex || 
+            idx === prevImageIndex || 
+            idx === (currentImageIndex + 1) % HERO_IMAGES.length;
+
+          if (!isRelevant) return null;
+
           return (
-            <div
-              key={img}
-              className={className}
-              style={{ backgroundImage: `url(${img})` }}
-            />
+            <div key={img} className={className}>
+              <Image
+                src={img}
+                alt="BICC Hero Background"
+                fill
+                priority={idx === 0}
+                quality={75}
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           );
         })}
       </div>
-
 
       <div className={styles.overlay}></div>
       <div className={styles.gridOverlay}></div>
 
       <div className={styles.heroInner} ref={contentRef}>
-
         <h1 className={styles.title}>
           <span className={styles.spanMain}>Barcelona International</span>
           <span className={styles.spanUpper}>Cricket Club</span>
@@ -146,7 +112,6 @@ export default function Hero() {
             {t(`Est. ${siteConfig.foundedYear}`, `Fund. ${siteConfig.foundedYear}`)}
           </span>
         </div>
-
       </div>
 
       <div className={styles.statsStrip}>
@@ -161,8 +126,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-
     </section>
   );
 }
