@@ -5,7 +5,7 @@ import styles from './JoinForm.module.css';
 
 export default function JoinForm() {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ fullName: '', email: '', phone: '', age: '', nationality: '', playingRole: 'other', experienceLevel: 'beginner', message: '' });
+  const [form, setForm] = useState({ fullName: '', email: '', phone: '', age: '', nationality: '', livesInBarcelona: 'yes', playingRole: 'other', experienceLevel: 'beginner', message: '' });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -99,6 +99,32 @@ export default function JoinForm() {
             <option value="wicket-keeper">{t('Wicket-Keeper', 'Wicket-Keeper')}</option>
             <option value="other">{t('Other / Not Sure', 'Otro / No estoy seguro')}</option>
           </select>
+        </div>
+      </div>
+
+      <div className="form-group">
+        <label className="form-label">{t('Are you currently living in Barcelona? *', '¿Vives actualmente en Barcelona? *')}</label>
+        <div className={styles.radioGroup}>
+          <label className={styles.radioLabel}>
+            <input 
+              type="radio" 
+              name="livesInBarcelona" 
+              value="yes" 
+              checked={form.livesInBarcelona === 'yes'} 
+              onChange={handleChange('livesInBarcelona')} 
+            />
+            <span>{t('Yes', 'Sí')}</span>
+          </label>
+          <label className={styles.radioLabel}>
+            <input 
+              type="radio" 
+              name="livesInBarcelona" 
+              value="no" 
+              checked={form.livesInBarcelona === 'no'} 
+              onChange={handleChange('livesInBarcelona')} 
+            />
+            <span>{t('No', 'No')}</span>
+          </label>
         </div>
       </div>
 
