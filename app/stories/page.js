@@ -1,6 +1,7 @@
 'use client';
 import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 // ✏️ TO ADD / EDIT STORIES & NEWS: open data/stories.js
 import { stories as storiesData } from '../../data/stories';
@@ -41,8 +42,15 @@ export default function StoriesPage() {
             <ScrollAnimation key={story.slug} delay={i * 100}>
               <Link href={`/stories/${story.slug}`} style={{ textDecoration: 'none' }}>
                 <div className="glass-panel" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', overflow: 'hidden', transition: 'all 0.5s ease', cursor: 'pointer' }}>
-                  <div style={{ height: '400px', overflow: 'hidden' }}>
-                    <img src={story.image} alt={story.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 3s ease' }} className="hover-zoom" />
+                  <div style={{ height: '400px', overflow: 'hidden', position: 'relative' }}>
+                    <Image 
+                      src={story.image} 
+                      alt={story.title} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="hover-zoom"
+                      style={{ objectFit: 'cover', transition: 'transform 3s ease' }} 
+                    />
                   </div>
                   <div style={{ padding: '48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ color: 'var(--accent-red)', fontWeight: '800', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '16px' }}>

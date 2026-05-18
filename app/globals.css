@@ -1,5 +1,5 @@
 /* ===== BICC PREMIUM DESIGN SYSTEM (Barcelona Edition) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
+
 
 :root {
   /* Core Palette (Blaugrana Premium Edition) */
@@ -66,7 +66,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: var(--font-outfit), var(--font-inter), sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.8;
@@ -83,7 +83,7 @@ body {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 900;
   letter-spacing: -0.04em;
   color: var(--text-pure);
@@ -91,7 +91,7 @@ h1, h2, h3, h4 {
 }
 
 .bebas {
-  font-family: 'Bebas Neue', cursive;
+  font-family: var(--font-bebas), cursive;
   letter-spacing: 0.15em;
 }
 
@@ -283,7 +283,7 @@ h1, h2, h3, h4 {
   border-radius: 8px;
   padding: 14px 20px;
   color: white;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-outfit), sans-serif;
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
