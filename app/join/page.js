@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import JoinForm from '../../components/JoinForm/JoinForm';
 import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
@@ -11,16 +12,14 @@ export default function JoinPage() {
       <section style={{ padding: '80px 0 40px', background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <ScrollAnimation>
-            <div style={{ marginBottom: '16px' }}>
-              <img
+            <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+              <Image
                 src="/images/utility/bicclogo.png"
                 alt="BICC crest"
+                width={156}
+                height={156}
                 style={{
-                  width: '156px',
-                  height: '156px',
                   objectFit: 'contain',
-                  display: 'block',
-                  margin: '0 auto'
                 }}
               />
             </div>

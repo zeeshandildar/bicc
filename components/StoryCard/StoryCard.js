@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
 import styles from './StoryCard.module.css';
 
@@ -9,7 +10,14 @@ export default function StoryCard({ story }) {
   return (
     <Link href={`/stories/${story.slug}`} className={styles.card}>
       <div className={styles.imageWrap}>
-        <img src={story.coverImage || 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=80'} alt={story.title} className={styles.image} />
+        <Image
+          src={story.coverImage || 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=80'}
+          alt={story.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className={styles.image}
+          style={{ objectFit: 'cover' }}
+        />
         <div className={styles.overlay}></div>
         <span className={styles.categoryBadge}>{story.category?.replace('-', ' ')}</span>
       </div>

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import SocialIcons from '../../components/SocialIcons/SocialIcons';
 import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../lib/LanguageContext';
@@ -25,7 +26,7 @@ export default function ContactPage() {
           </ScrollAnimation>
         </div>
       </section>
-
+ 
       <section className="section">
         <div className="container" style={{ maxWidth: '700px', margin: '0 auto' }}>
           <ScrollAnimation>
@@ -67,11 +68,13 @@ export default function ContactPage() {
                 </span>
                 {t('Connect with us on WhatsApp', 'Conéctate con nosotros en WhatsApp')}
               </a>
-              <div>
-                <img
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Image
                   src={whatsappQrUrl}
                   alt={t('WhatsApp QR code for BICC contact', 'Código QR de WhatsApp para contacto de BICC')}
-                  style={{ width: '220px', maxWidth: '100%', borderRadius: '12px', border: '1px solid var(--border-subtle)', background: '#fff', padding: '10px' }}
+                  width={220}
+                  height={220}
+                  style={{ borderRadius: '12px', border: '1px solid var(--border-subtle)', background: '#fff', padding: '10px' }}
                 />
               </div>
             </div>
