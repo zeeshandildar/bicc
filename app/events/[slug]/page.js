@@ -75,9 +75,11 @@ export default function EventDetailPage({ params }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px' }}>
             <ScrollAnimation>
               <h2 className="bebas" style={{ fontSize: '2.5rem', marginBottom: '24px' }}>{t('Event Overview', 'Descripción del Evento')}</h2>
-              <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '32px' }}>
-                {event.description}
-              </p>
+              {event.description.split('\n\n').map((para, idx) => (
+                <p key={idx} style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '20px' }}>
+                  {para}
+                </p>
+              ))}
               
               {/* Image Gallery */}
               {event.images && event.images.length > 1 && (
