@@ -318,6 +318,13 @@ h1, h2, h3, h4 {
 }
 
 
+.filter-tab-button:hover {
+  border-color: var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
   .section-padding { padding: 80px 0; }
