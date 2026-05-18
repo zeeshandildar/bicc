@@ -66,14 +66,6 @@ export default function Hero() {
           if (idx === currentImageIndex) className += ` ${styles.visible}`;
           if (idx === prevImageIndex) className += ` ${styles.prev}`;
 
-          // Only render current, previous, and next images to save memory
-          const isRelevant = 
-            idx === currentImageIndex || 
-            idx === prevImageIndex || 
-            idx === (currentImageIndex + 1) % HERO_IMAGES.length;
-
-          if (!isRelevant) return null;
-
           return (
             <div key={img} className={className}>
               <Image

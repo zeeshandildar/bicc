@@ -119,10 +119,10 @@ export default function HomePage() {
                 <Image
                   src="/images/yakkian/IMG-20220827-WA0011.jpg"
                   alt="BICC 2026 Champions"
-                  fill
+                  width={800}
+                  height={600}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.philImage}
-                  style={{ objectFit: 'cover' }}
                 />
               </div>
             </ScrollAnimation>

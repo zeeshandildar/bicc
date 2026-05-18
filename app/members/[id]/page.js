@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { use } from 'react';
 import styles from '../../../components/PlayerProfile/PlayerProfile.module.css';
 import ScrollAnimation from '../../../components/ScrollAnimation/ScrollAnimation';
@@ -18,7 +19,7 @@ export default function PlayerProfilePage({ params }) {
     'sam-phillipps': {
       debutStory: t(
         'Sam made his BICC debut in 2015 fresh from the UK. He quickly established himself as a leader, though his emails became more famous than his batting.',
-        'Sam debutó en el BICC en 2015 recién llegado del Reino Unido. Rápidamente se estableció como un líder, aunque sus correos electrónicos se volvieron más famosos que su bateo.'
+        'Sam debutó en el BICC en 2015 recién llegado del Reino Unido. Rápidamente se estableció como un líder, aunque sus correos electrónicos se volvieron más famosos que sus bateos.'
       ),
       peerReviews: [
         { author: 'Leandro Lyons', comment: t('Great president, even better email writer. Always there when the club needs a nudge.', 'Gran presidente, mejor escritor de correos. Siempre ahí cuando el club necesita un empujón.') }
@@ -64,10 +65,13 @@ export default function PlayerProfilePage({ params }) {
       {/* Hero Banner */}
       <div className={styles.heroBanner}>
         <div className={styles.heroInner}>
-          <img 
+          <Image 
             src={player.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=1a2238&color=c9a84c&size=400&font-size=0.35`} 
             alt={player.name} 
+            width={180}
+            height={180}
             className={styles.avatarLarge} 
+            priority
           />
           <div className={styles.heroInfo}>
             <Link href="/members" className={styles.backLink}>← {t('Back to Members', 'Volver a Miembros')}</Link>
