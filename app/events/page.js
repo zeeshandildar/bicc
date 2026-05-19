@@ -39,6 +39,8 @@ export default function EventsPage() {
   const visibleEvents = sortedEvents.filter((event) => {
     const eventTs = getEventTimestamp(event);
     if (filter === 'upcoming') return eventTs >= todayTs;
+    if (filter === 'tours') return event.type === 'tour';
+    if (filter === 'match_reports') return event.category === 'Match Report';
     if (filter === 'past') return eventTs < todayTs;
     return true;
   });
@@ -59,25 +61,30 @@ export default function EventsPage() {
 
       <section className="section">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '28px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '32px', flexWrap: 'wrap' }}>
             {[
-              { key: 'all', label: t('All Events', 'Todos los Eventos') },
-              { key: 'upcoming', label: t('Upcoming Events', 'Próximos Eventos') },
-              { key: 'past', label: t('Past Events', 'Eventos Pasados') },
+              { key: 'all', label: t('All', 'Todos') },
+              { key: 'tours', label: t('Tours', 'Tours') },
+              { key: 'match_reports', label: t('Match Reports', 'Crónicas de Partidos') },
+              { key: 'upcoming', label: t('Upcoming Schedule', 'Próximos Partidos') },
             ].map((option) => (
               <button
                 key={option.key}
                 type="button"
                 onClick={() => setFilter(option.key)}
                 style={{
-                  padding: '10px 16px',
+                  padding: '10px 20px',
                   borderRadius: '999px',
                   border: filter === option.key ? '1px solid var(--accent-gold)' : '1px solid var(--border-subtle)',
                   background: filter === option.key ? 'rgba(255, 215, 0, 0.12)' : 'var(--bg-card)',
-                  color: 'var(--text-primary)',
+                  color: filter === option.key ? 'var(--accent-gold)' : 'var(--text-primary)',
                   fontWeight: 600,
+                  fontSize: '0.95rem',
                   cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: filter === option.key ? '0 4px 12px rgba(255, 215, 0, 0.15)' : 'none',
                 }}
+                className="filter-tab-button"
               >
                 {option.label}
               </button>
