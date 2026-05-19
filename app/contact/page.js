@@ -15,7 +15,7 @@ export default function ContactPage() {
       <section style={{ padding: '80px 0 40px', background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <ScrollAnimation>
-            <h1>{t('Contact', 'Contáctanos')} <span className="gradient-text">{t('Us', ' ')}</span></h1>
+            <h1>{t('Contact', 'Ponte en')} <span className="gradient-text">{t('Us', 'Contacto')}</span></h1>
             <div className="badge" style={{ marginTop: '16px' }}>{t('📬 Get In Touch', '📬 Ponte en Contacto')}</div>
             <p style={{ maxWidth: '600px', margin: '0px auto 0', color: 'var(--text-muted)', fontSize: '1.1rem' }}>
               {t(
@@ -90,7 +90,7 @@ export default function ContactPage() {
 
           <ScrollAnimation delay={240}>
             <div className="glass" style={{ padding: '40px', textAlign: 'center' }}>
-              <h3 style={{ marginBottom: '16px', fontSize: '1.2rem' }}>📍 {t('Where We Play', 'Donde Jugamos')}</h3>
+              <h3 style={{ marginBottom: '16px', fontSize: '1.2rem' }}>📍 {t('Where We Play', 'Dónde Jugamos')}</h3>
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
                 {siteConfig.clubName}<br />
                 {t(siteConfig.location, siteConfig.locationEs)}<br /><br />
