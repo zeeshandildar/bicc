@@ -63,6 +63,13 @@ export default function MemberCard({ member }) {
   };
 
   const flagCode = getFlagCode(flagEmoji);
+  const imageSrc = member.profileImage;
+  const initials = member.name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() || '')
+    .join('');
 
   return (
     <div 
@@ -74,14 +81,20 @@ export default function MemberCard({ member }) {
       <Link href={`/members/${member.slug}`} className={styles.card} style={style}>
         <div className={styles.glare}></div>
         <div className={styles.imageWrap}>
-          <Image 
-            src={member.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1a2b56&color=c9a84c&size=300`} 
-            alt={member.name} 
-            fill
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className={styles.image}
-            style={{ objectFit: 'cover' }}
-          />
+          {imageSrc ? (
+            <Image 
+              src={imageSrc}
+              alt={member.name} 
+              fill
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className={styles.image}
+              style={{ objectFit: 'cover' }}
+            />
+          ) : (
+            <div className={styles.initialsFallback} aria-label={`${member.name} initials`}>
+              {initials}
+            </div>
+          )}
           <div className={styles.overlay}></div>
           <div className={styles.roleBadge}>{member.role}</div>
         </div>

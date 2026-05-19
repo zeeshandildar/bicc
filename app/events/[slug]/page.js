@@ -2,6 +2,8 @@
 import { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import ScrollAnimation from '../../../components/ScrollAnimation/ScrollAnimation';
 import { useLanguage } from '../../../lib/LanguageContext';
 import { events as eventsData } from '../../../data/events';
@@ -75,11 +77,38 @@ export default function EventDetailPage({ params }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px' }}>
             <ScrollAnimation>
               <h2 className="bebas" style={{ fontSize: '2.5rem', marginBottom: '24px' }}>{t('Event Overview', 'Descripción del Evento')}</h2>
-              {event.description.split('\n\n').map((para, idx) => (
-                <p key={idx} style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '20px' }}>
-                  {para}
-                </p>
-              ))}
+              <div className="event-markdown">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    p: ({ children }) => (
+                      <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '20px' }}>
+                        {children}
+                      </p>
+                    ),
+                    a: ({ href, children }) => (
+                      <a href={href} rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    ),
+                    ul: ({ children }) => (
+                      <ul style={{ marginBottom: '20px', paddingLeft: '20px', color: 'var(--text-main)' }}>
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol style={{ marginBottom: '20px', paddingLeft: '20px', color: 'var(--text-main)' }}>
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children }) => (
+                      <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>{children}</li>
+                    ),
+                  }}
+                >
+                  {event.description}
+                </ReactMarkdown>
+              </div>
               
               {/* Image Gallery */}
               {event.images && event.images.length > 1 && (
@@ -133,6 +162,17 @@ export default function EventDetailPage({ params }) {
       <style jsx>{`
         .gallery-item:hover img {
           transform: scale(1.1);
+        }
+        .event-markdown a {
+          color: var(--accent-gold);
+          text-decoration: underline;
+          cursor: pointer;
+          pointer-events: auto;
+          position: relative;
+          z-index: 2;
+        }
+        .event-markdown a:hover {
+          color: var(--accent-gold-bright);
         }
         .lightbox-overlay {
           position: fixed;

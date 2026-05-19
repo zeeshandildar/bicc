@@ -14,9 +14,10 @@ import { siteConfig } from '../../data/siteConfig';
  */
 
 const HERO_IMAGES = [
+  '/images/hero/default-hero-image.jpg',
+  '/images/hero/hero-image-2.jpg',
   '/images/hero/hero-image-3.jpg',
-  '/images/hero/hero-image-1.jpg',
-  '/images/hero/hero-image-4.jpg',
+  '/images/hero/hero-image-7.jpg'
 ];
 
 export default function Hero() {
