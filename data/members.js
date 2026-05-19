@@ -14,7 +14,7 @@ export const members = [
     squadNumber: 22,
     debut: 'April 2015',
     isBoardMember: true,
-    profileImage: '/images/members/sam-phillipps.png',
+    profileImage: '/images/members/sam-phillipps.jpg',
     ccId: '2082333'
   },
   {

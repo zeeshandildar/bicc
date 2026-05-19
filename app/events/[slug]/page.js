@@ -13,6 +13,16 @@ export default function EventDetailPage({ params }) {
   const { t, language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const extractTextContent = (value) => {
+    if (typeof value === 'string' || typeof value === 'number') return String(value);
+    if (Array.isArray(value)) return value.map(extractTextContent).join('');
+    if (value && typeof value === 'object' && 'props' in value) return extractTextContent(value.props?.children);
+    return '';
+  };
+
+  const toTitleCase = (value) =>
+    value.replace(/\b\w+/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
   // Close lightbox on Escape key
   useEffect(() => {
     const handleEsc = (e) => {
@@ -86,11 +96,35 @@ export default function EventDetailPage({ params }) {
                         {children}
                       </p>
                     ),
-                    a: ({ href, children }) => (
-                      <a href={href} rel="noopener noreferrer">
-                        {children}
-                      </a>
-                    ),
+                    a: ({ href, children }) => {
+                      const rawLabel = extractTextContent(children).replace(/\s+/g, ' ').trim();
+                      const isScorecardByText = /scorecard/i.test(rawLabel);
+                      const isScorecardByHref = typeof href === 'string' && /(play-cricket\.com|fullscorecard\.do)/i.test(href);
+                      const isScorecardLink = isScorecardByText || isScorecardByHref;
+
+                      const buttonLabel = rawLabel ? toTitleCase(rawLabel) : t('View Scorecard', 'Ver Marcador');
+
+                      if (isScorecardLink) {
+                        return (
+                          <span className="scorecard-link-wrap">
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="scorecard-button"
+                            >
+                              {buttonLabel || t('View Scorecard', 'Ver Marcador')}
+                            </a>
+                          </span>
+                        );
+                      }
+
+                      return (
+                        <a href={href} rel="noopener noreferrer">
+                          {children}
+                        </a>
+                      );
+                    },
                     ul: ({ children }) => (
                       <ul style={{ marginBottom: '20px', paddingLeft: '20px', color: 'var(--text-main)' }}>
                         {children}
@@ -173,6 +207,28 @@ export default function EventDetailPage({ params }) {
         }
         .event-markdown a:hover {
           color: var(--accent-gold-bright);
+        }
+        .event-markdown .scorecard-button {
+          display: inline-block;
+          padding: 10px 18px;
+          border-radius: 999px;
+          border: 1px solid var(--accent-gold);
+          background: rgba(245, 179, 53, 0.12);
+          color: var(--accent-gold);
+          text-decoration: none;
+          font-weight: 700;
+          line-height: 1.2;
+          transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+        .event-markdown .scorecard-button:hover {
+          background: var(--accent-gold);
+          color: #111;
+          transform: translateY(-1px);
+        }
+        .event-markdown .scorecard-link-wrap {
+          display: block;
+          width: fit-content;
+          margin-bottom: 10px;
         }
         .lightbox-overlay {
           position: fixed;
