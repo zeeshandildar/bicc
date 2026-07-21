@@ -51,6 +51,9 @@ export const notificationConfig = {
   webhookUrl: 'https://script.google.com/macros/s/your-deployment-id/exec',
   sharedSecret: 'replace-with-the-same-secret-used-in-apps-script',
   notificationEmails: ['committee1@example.com', 'committee2@example.com'],
+  eventRecipients: {
+    join_application: ['committee1@example.com'],
+  },
   timeoutMs: 20000,
 };
 ```
@@ -132,7 +135,8 @@ Notification delivery is configured in `lib/notificationConfig.js`.
 |---|---|---|
 | `webhookUrl` | Deployed Google Apps Script Web App URL | Yes |
 | `sharedSecret` | HMAC secret used to sign outgoing webhook payloads | Recommended |
-| `notificationEmails` | Recipient email list passed to the webhook payload | Optional |
+| `notificationEmails` | Default recipient email list passed to the webhook payload | Optional |
+| `eventRecipients` | Per-event-type recipient overrides (e.g. `join_application`), falls back to `notificationEmails` | Optional |
 | `timeoutMs` | Webhook timeout in milliseconds | Optional |
 
 ### Google Apps Script Setup
