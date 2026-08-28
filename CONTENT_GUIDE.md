@@ -18,6 +18,12 @@ All content is managed through JavaScript files in the `data/` directory.
 
 **Match reports live here**, on the event they belong to — not in the News section.
 
+> 💡 **The easy way:** run `npm run new-report -- "Tour Name"`, paste the report
+> into the file it creates, drop the photos in the folder it creates, then run
+> `npm run publish-report -- <slug>`. It writes the event, the news card, and
+> the gallery for you. See `docs/adding-a-match-report.md`.
+> The manual fields below are for editing a report after it's published.
+
 - **Fields:**
     - `title` / `titleEs`: English and Spanish titles.
     - `slug`: Unique identifier for the URL.

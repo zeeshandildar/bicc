@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "new-report": "node scripts/new-report.mjs",
+    "publish-report": "node scripts/publish-report.mjs"
   },
   "dependencies": {
     "next": "^16.2.6",
