@@ -91,6 +91,16 @@ export default function EventDetailPage({ params }) {
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
+                    h2: ({ children }) => (
+                      <h2 className="bebas" style={{ fontSize: '2rem', color: 'var(--accent-gold)', margin: '40px 0 16px' }}>
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 style={{ fontSize: '1.3rem', color: 'var(--accent-gold)', margin: '32px 0 12px' }}>
+                        {children}
+                      </h3>
+                    ),
                     p: ({ children }) => (
                       <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '20px' }}>
                         {children}
