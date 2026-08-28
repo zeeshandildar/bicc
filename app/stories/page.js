@@ -1,5 +1,6 @@
 'use client';
 import ScrollAnimation from '../../components/ScrollAnimation/ScrollAnimation';
+import NewsBoard from '../../components/NewsBoard/NewsBoard';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '../../lib/LanguageContext';
@@ -34,6 +35,9 @@ export default function StoriesPage() {
           </ScrollAnimation>
         </div>
       </section>
+
+      {/* Live announcements from the committee (matches, nets, trip photos) */}
+      <NewsBoard />
 
       {/* Story List */}
       <section className="section-padding" style={{ paddingTop: 0 }}>

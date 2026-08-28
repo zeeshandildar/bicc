@@ -24,11 +24,14 @@ All content is managed through JavaScript files in the `data/` directory.
     - `type`: One of: `'tour'`, `'match'`, `'social'`, or `'training'`.
     - `images`: A list of image URLs.
 
-## 3. How to Add News or Stories
-**File:** `data/stories.js`
+## 3. How to Add News, Stories & Match Reports
+**File:** `data/stories.js` (one file — the card on the News page AND the full article both come from here)
 
-- **Featured Story:** Only ONE story should have `featured: true`. This story will appear as the large banner at the top of the Stories page.
-- **Order:** The website displays them in the order they appear in the file. Add new stories at the top to make them appear first.
+- **To add a story:** Copy an existing block and paste it at the **top** of the list (the site shows them in file order). Give it a unique `slug` (e.g., `la-manga-tour-2026-sunday-40-over`) — that becomes the URL.
+- **Card fields:** `title`/`titleEs`, `excerpt`/`excerptEs`, `date` (display text), `image`, `category`/`categoryEs` (e.g., `'Match Report'` / `'Crónica de Partido'`).
+- **Article fields:** `author`/`authorEs`, `publishedAt` (`'YYYY-MM-DD'`), and `content`/`contentEs` — the full report. Separate paragraphs with a blank line. A line wrapped in `**double asterisks**` on its own becomes a gold subheading.
+- **Photos:** Put the cover photo in `public/images/stories/` and set `image` to `/images/stories/your-photo.jpg`.
+- **Photo gallery (optional):** Add more photos to a story with a `gallery` list — they appear as a grid under the article. Example: `gallery: ['/images/stories/la-manga-2026/photo1.jpg', '/images/stories/la-manga-2026/photo2.jpg']`.
 
 ## 4. How to Update Club Info (Email, Schedule, Links)
 **File:** `data/siteConfig.js`
@@ -52,6 +55,20 @@ This is the most important file for general updates:
 - **Eras:** Add or edit historical eras in the `eras` list.
 - **Full Story:** Update the paragraphs in `fullStory` for the detailed history page.
 - **Milestones:** Add new achievements to the `milestones` list.
+
+## 7. How to Post Announcements (Matches, Nets, Trip Photos)
+**No code needed — use the Google Form.**
+
+The "Club Noticeboard" on the News page is fed by the **BICC Announcement**
+Google Form. Fill the form (title, type, date, signup link, photo album
+link) and the website updates itself within ~10 minutes. You will also
+receive a ready-made WhatsApp message by email to paste into the group.
+
+- **Trip photos:** create a shared Google Photos album and paste its link
+  into the form's "Photo Album Link" field.
+- **Remove a post:** open the responses Google Sheet and put `TRUE` in the
+  `Hide` column for that row.
+- **One-time setup / troubleshooting:** see `docs/announcements-setup.md`.
 
 ## 💡 Pro Tips
 - **Images:** Use local paths like `/images/hero/my-photo.jpg` for uploaded images, or high-quality URLs.
