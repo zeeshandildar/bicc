@@ -5,6 +5,102 @@
 
 export const events = [
   {
+    id: 18,
+    title: "La Manga Tour August 2026",
+    titleEs: "Tour de La Manga Agosto 2026",
+    slug: "la-manga-tour-august-2026",
+    date: "22-23 August 2026",
+    dateEs: "22-23 Agosto 2026",
+    sortDate: "2026-08-22",
+    time: "Weekend Tour",
+    location: "La Manga, Spain",
+    locationEs: "La Manga, España",
+    // Short text for the events list card; the full reports are in `description`.
+    summary: "Three games, three wins at the La Manga Cricket and Golf Resort — a T20 double-header on Saturday and the 40-over main event on Sunday.",
+    summaryEs: "Tres partidos, tres victorias en el La Manga Cricket and Golf Resort: una doble jornada de T20 el sábado y el evento principal a 40 overs el domingo.",
+    description: `Three games, three wins. The summer break ended in style at the La Manga Cricket and Golf Resort with a T20 double-header on Saturday and the 40-over main event on Sunday.
+
+## Saturday — T20 Game 1
+
+The summer break finally came to an end as we made our way down to the La Manga Cricket and Golf Resort for Saturday's T20 double-header. Things didn't start strictly to plan off the pitch — a slightly late arrival on our part meant we forfeited the toss by default, allowing La Manga skipper Kieran Wood to eagerly elect to bat first.
+
+Once out in the middle, our bowling attack quickly found its groove, despite us starting with only 9 players. Burhan Ejaz and Shriram Bhosale set early traps before Zeeshan Dildar was too quick for them, taking 2 for 5 from his 4 overs. Umer Razi had a sensational morning in the field, holding onto three catches before taking the ball himself to post astonishing figures of 2 for 2 (including a maiden) in his 2 overs. Vishesh Gajjar (2/10) and Anish Shindore (1/11) kept the squeeze on, leaving La Manga's lineup in real trouble. However, our radar proved somewhat generous — a staggering 62 extras (including 48 wides) accounted for over half their total, helping them scrape together 121/9 from their 20 overs.
+
+Chasing 122, our innings got off to a bumpy start. Rahul Maini removed both Jayden Clark (3) and Ujjwal Anand (8) to leave us wobbling at 21/2. Damien McMullen (17) stepped up to help rebuild, but the man of the match was undoubtedly Umer Razi. Carrying his fielding form into his batting, Umer anchored the chase with a brilliant, unbeaten 49 off 39 balls.
+
+With 44 runs still needed late in the game, Umer and Burhan Ejaz (17* off 11) launched a counter-attack against La Manga's change bowlers, taking 44 runs off less than 4 overs. We sauntered past the target to finish on 124/3 in 17.5 overs, securing a comfortable 7-wicket victory. A slightly heartbreaking single run short of a half-century for Umer, but a brilliant start to the tour!
+
+## Saturday — T20 Game 2
+
+After a quick lunch break, Game 2 got underway under the afternoon sun. With no way we could forfeit the toss again, skipper Shriram won the toss cleanly and promptly sent La Manga in to bat again.
+
+The skipper set the tone immediately, delivering a masterclass with the new ball. He kicked off the innings with a wicket maiden, shattering Johnny Kinsella's stumps on the sixth ball after five wild swings. He was back at it in his second over to bowl Paul Harvey for a duck, before returning to clean up La Manga skipper Kieran Wood for 12. With outstanding figures of 3 for 14 from his four overs, Shriram had LMTCC reeling early. However, a resilient 70-run stand between Gopi Singh (44) and debutant Akshay (41*) helped steady their ship, dragging La Manga to a respectable total of 152/6 from their 20 overs.
+
+Needing 153 to secure a Saturday sweep, our chase was made considerably easier as La Manga found themselves down to just nine fielders due to early departures. With massive gaps out on the spacious resort outfield, our top order didn't even need to clear the rope to keep the scoreboard ticking, happily running La Manga ragged with plenty of twos.
+
+Zeeshan Dildar (5) fell early and Shriram chipped in with a seven-ball 22, but the chase belonged entirely to Jayden Clark and Damien McMullen. The pair produced a clinical, entertaining partnership, punishing anything loose and effortlessly finding the deep gaps. Both batters brought up brilliant unbeaten half-centuries with Jayden finishing on 54* off 42 balls and Damo blasting a rapid 54* off just 32.
+
+We sauntered to 153/2 in the 16th over, sealing an emphatic eight-wicket victory with four full overs to spare. With two wins out of two locked in on Saturday, we headed off to our villa for a team barbecue, followed by a 2am trip to McDonald's!
+
+## Sunday — 40-Over Match
+
+After winning both the T20 games on Saturday, we returned to the La Manga Cricket and Golf Resort for Sunday's 40-over main event. La Manga won the toss and opted to bat first on their home deck, but our bowling attack was quickly up to the task.
+
+Shriram Bhosale set a miserly tone early on (0/10 off 4), before Saurabh Sathyashankar and Zeeshan Dildar claimed initial breakthroughs. The rest of the innings, however, belonged entirely to Burhan Ejaz, along with a bit of controversy. Burhan ripped through the La Manga middle- and lower-order in a devastating spell, but in the heat of the action, the umpires and scorers miscalculated his tally of overs. With him one short of a 5fer, he asked the umpire how many overs he had bowled and was told seven. By the time the scorers realised the mistake, he had already claimed his fifth wicket before finishing with unbelievable figures of 6 for 18 off 8.4 overs. Despite the light-hearted boundary-line banter over his extended workload, the scorecard stood. Supported by a sharp direct-hit run-out from Ujjwal Anand to dismiss top-scorer R Nell (43), we bundled La Manga out for 146 in 37.4 overs.
+
+Chasing 147, we made sure to keep the afternoon dramatic. Jayden Clark was caught short for 1 after some confusion whilst running, and after Ujjwal (24) fell caught-and-bowled to Tirth Singh, our middle order suffered a classic wobble. Anish Shindore, Umer Razi, James Bentley, and Damien McMullen were all back in the shed in quick succession as LMTCC's bowlers seized control, leaving us wobbling at 88/6. Step up debutant Saurabh Sathyashankar. Saurabh played a proper match-winning knock, smashing a brilliant 59 not out off 52 balls, decorated with eight boundaries and two maximums. He found the perfect partner in Burhan, who capped off his memorable day by chipping in with a cool 22 not out (hogging the strike to make sure he hit the winning runs). Their unbroken 59-run stand saw us saunter past the target to finish on 147/6 in 24.2 overs, wrapping up a 4-wicket victory and pocketing 19 out of the possible 20 points.
+
+It was another fantastic day of cricket against a wonderfully hospitable host side. We stayed for a few drinks before heading back to Cartagena, though next time we might buy the umpires and scorers a clicker to keep Burhan's overs in check!`,
+    descriptionEs: `Tres partidos, tres victorias. La pausa veraniega terminó por todo lo alto en el La Manga Cricket and Golf Resort con una doble jornada de T20 el sábado y el evento principal a 40 overs el domingo.
+
+## Sábado — T20 Partido 1
+
+La pausa veraniega llegó por fin a su fin cuando bajamos al La Manga Cricket and Golf Resort para la doble jornada de T20 del sábado. Las cosas no empezaron exactamente según lo previsto fuera del campo: una llegada ligeramente tardía por nuestra parte nos hizo perder el sorteo por incomparecencia, permitiendo al capitán de La Manga, Kieran Wood, elegir con entusiasmo batear primero.
+
+Ya en el campo, nuestro ataque de lanzamiento encontró rápidamente su ritmo, a pesar de empezar con solo 9 jugadores. Burhan Ejaz y Shriram Bhosale tendieron las primeras trampas antes de que Zeeshan Dildar resultara demasiado rápido para ellos, logrando 2 por 5 en sus 4 overs. Umer Razi tuvo una mañana sensacional en el campo, atrapando tres catches antes de tomar la bola él mismo para firmar unas asombrosas cifras de 2 por 2 (incluido un maiden) en sus 2 overs. Vishesh Gajjar (2/10) y Anish Shindore (1/11) mantuvieron la presión, dejando a la alineación de La Manga en serios problemas. Sin embargo, nuestra puntería resultó algo generosa: unos asombrosos 62 extras (incluidos 48 wides) supusieron más de la mitad de su total, ayudándoles a arañar 121/9 en sus 20 overs.
+
+Persiguiendo 122, nuestra entrada tuvo un comienzo accidentado. Rahul Maini eliminó tanto a Jayden Clark (3) como a Ujjwal Anand (8) para dejarnos tambaleándonos con 21/2. Damien McMullen (17) dio un paso al frente para ayudar a reconstruir, pero el hombre del partido fue sin duda Umer Razi. Trasladando su forma en el campo al bateo, Umer ancló la persecución con unas brillantes 49 carreras sin ser eliminado en 39 bolas.
+
+Con 44 carreras aún necesarias al final del partido, Umer y Burhan Ejaz (17* en 11) lanzaron un contraataque contra los lanzadores de cambio de La Manga, sumando 44 carreras en menos de 4 overs. Superamos el objetivo con tranquilidad para terminar con 124/3 en 17.5 overs, asegurando una cómoda victoria por 7 wickets. Una sola carrera le faltó a Umer para su medio siglo —un poco desgarrador—, ¡pero un comienzo brillante del tour!
+
+## Sábado — T20 Partido 2
+
+Tras una rápida pausa para comer, el segundo partido comenzó bajo el sol de la tarde. Sin posibilidad de volver a perder el sorteo por incomparecencia, el capitán Shriram ganó el sorteo limpiamente y envió de nuevo a La Manga a batear.
+
+El capitán marcó el tono de inmediato, ofreciendo una clase magistral con la bola nueva. Abrió la entrada con un wicket maiden, destrozando los stumps de Johnny Kinsella en la sexta bola tras cinco intentos desesperados. Volvió a la carga en su segundo over para eliminar a Paul Harvey sin anotar, antes de regresar para acabar con el capitán de La Manga, Kieran Wood, por 12. Con unas cifras sobresalientes de 3 por 14 en sus cuatro overs, Shriram tenía a LMTCC contra las cuerdas desde el principio. Sin embargo, una resistente asociación de 70 carreras entre Gopi Singh (44) y el debutante Akshay (41*) ayudó a estabilizar su barco, arrastrando a La Manga hasta un total respetable de 152/6 en sus 20 overs.
+
+Necesitando 153 para asegurar el pleno del sábado, nuestra persecución se hizo considerablemente más fácil cuando La Manga se quedó con solo nueve fildeadores debido a salidas anticipadas. Con enormes huecos en el espacioso campo del resort, nuestro orden alto ni siquiera necesitó superar la cuerda para mantener el marcador en movimiento, corriendo felizmente montones de dobles y agotando a La Manga.
+
+Zeeshan Dildar (5) cayó pronto y Shriram aportó 22 en siete bolas, pero la persecución perteneció por completo a Jayden Clark y Damien McMullen. La pareja produjo una asociación clínica y entretenida, castigando cualquier bola suelta y encontrando sin esfuerzo los huecos profundos. Ambos bateadores lograron brillantes medios siglos sin ser eliminados: Jayden terminó con 54* en 42 bolas y Damo con unas rápidas 54* en solo 32.
+
+Llegamos tranquilamente a 153/2 en el over 16, sellando una contundente victoria por ocho wickets con cuatro overs completos de sobra. Con dos victorias de dos aseguradas el sábado, nos fuimos a nuestra villa para una barbacoa de equipo, ¡seguida de una visita a McDonald's a las 2 de la madrugada!
+
+## Domingo — Partido a 40 Overs
+
+Después de ganar los dos partidos T20 del sábado, regresamos al La Manga Cricket and Golf Resort para el evento principal del domingo a 40 overs. La Manga ganó el sorteo y optó por batear primero en su propio campo, pero nuestro ataque de lanzamiento estuvo rápidamente a la altura.
+
+Shriram Bhosale marcó un tono avaro desde el principio (0/10 en 4), antes de que Saurabh Sathyashankar y Zeeshan Dildar lograran las primeras rupturas. El resto de la entrada, sin embargo, perteneció por completo a Burhan Ejaz, junto con un poco de polémica. Burhan arrasó el orden medio y bajo de La Manga en una racha devastadora, pero en el calor de la acción, los árbitros y anotadores calcularon mal su número de overs. Cuando le faltaba uno para su quinto wicket, preguntó al árbitro cuántos overs había lanzado y le dijeron que siete. Para cuando los anotadores se dieron cuenta del error, ya había conseguido su quinto wicket antes de terminar con unas increíbles cifras de 6 por 18 en 8.4 overs. A pesar de las bromas desde la línea de banda sobre su carga de trabajo extendida, el marcador se mantuvo. Con el apoyo de un certero run-out directo de Ujjwal Anand para eliminar al máximo anotador R Nell (43), despachamos a La Manga por 146 en 37.4 overs.
+
+Persiguiendo 147, nos aseguramos de mantener la tarde dramática. Jayden Clark se quedó corto por 1 tras cierta confusión al correr, y después de que Ujjwal (24) cayera atrapado por el propio lanzador Tirth Singh, nuestro orden medio sufrió un bache clásico. Anish Shindore, Umer Razi, James Bentley y Damien McMullen volvieron al banquillo en rápida sucesión mientras los lanzadores de LMTCC tomaban el control, dejándonos tambaleándonos con 88/6. Paso al frente el debutante Saurabh Sathyashankar. Saurabh jugó una auténtica entrada ganadora, golpeando unas brillantes 59 carreras sin ser eliminado en 52 bolas, adornadas con ocho boundaries y dos sixes. Encontró al compañero perfecto en Burhan, que coronó su día memorable aportando 22 sin ser eliminado (acaparando el strike para asegurarse de golpear las carreras ganadoras). Su asociación intacta de 59 carreras nos llevó más allá del objetivo para terminar con 147/6 en 24.2 overs, cerrando una victoria por 4 wickets y embolsándonos 19 de los 20 puntos posibles.
+
+Fue otro día fantástico de críquet contra un anfitrión maravillosamente hospitalario. Nos quedamos a tomar algo antes de volver a Cartagena, ¡aunque la próxima vez quizá les compremos un contador a los árbitros y anotadores para controlar los overs de Burhan!`,
+    category: "Tour",
+    type: "tour",
+    images: [
+      "/images/events/la-manga-august-2026/team-photo-whites.jpeg",
+      "/images/events/la-manga-august-2026/team-huddle.jpeg",
+      "/images/events/la-manga-august-2026/batters-walking-out.jpeg",
+      "/images/events/la-manga-august-2026/batting-pair.jpeg",
+      "/images/events/la-manga-august-2026/on-field-banter.jpeg",
+      "/images/events/la-manga-august-2026/batters-in-whites.jpeg",
+      "/images/events/la-manga-august-2026/villa-bbq-1.jpeg",
+      "/images/events/la-manga-august-2026/villa-bbq-2.jpeg",
+      "/images/events/la-manga-august-2026/tour-group-day-out.jpeg",
+      "/images/events/la-manga-august-2026/resort-views.jpeg",
+      "/images/events/la-manga-august-2026/la-manga-hills.jpeg"
+    ]
+  },
+  {
     id: 13,
     title: "ECCL 2026 vs Alfas",
     titleEs: "ECCL 2026 vs Alfas",

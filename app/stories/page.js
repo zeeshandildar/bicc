@@ -44,7 +44,8 @@ export default function StoriesPage() {
         <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
           {stories.map((story, i) => (
             <ScrollAnimation key={story.slug} delay={i * 100}>
-              <Link href={`/stories/${story.slug}`} style={{ textDecoration: 'none' }}>
+              {/* `link` sends the card to another page (e.g. an event) instead of a story article */}
+              <Link href={story.link || `/stories/${story.slug}`} style={{ textDecoration: 'none' }}>
                 <div className="glass-panel" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', overflow: 'hidden', transition: 'all 0.5s ease', cursor: 'pointer' }}>
                   <div style={{ height: '400px', overflow: 'hidden', position: 'relative' }}>
                     <Image 

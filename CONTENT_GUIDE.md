@@ -16,10 +16,13 @@ All content is managed through JavaScript files in the `data/` directory.
 ## 2. How to Add or Edit Events & Tours
 **File:** `data/events.js`
 
+**Match reports live here**, on the event they belong to — not in the News section.
+
 - **Fields:**
     - `title` / `titleEs`: English and Spanish titles.
     - `slug`: Unique identifier for the URL.
-    - `description` / `descriptionEs`: English and Spanish descriptions.
+    - `description` / `descriptionEs`: the event page text. Supports Markdown, so a tour with several games can use `## Saturday — T20 Game 1` style headings, one per match report.
+    - `summary` / `summaryEs`: optional short text for the events list card. Add this whenever `description` holds a long report, otherwise the card shows the whole thing.
     - `date`: Format as `'YYYY-MM-DD'`.
     - `type`: One of: `'tour'`, `'match'`, `'social'`, or `'training'`.
     - `images`: A list of image URLs.
@@ -31,7 +34,8 @@ All content is managed through JavaScript files in the `data/` directory.
 - **Card fields:** `title`/`titleEs`, `excerpt`/`excerptEs`, `date` (display text), `image`, `category`/`categoryEs` (e.g., `'Match Report'` / `'Crónica de Partido'`).
 - **Article fields:** `author`/`authorEs`, `publishedAt` (`'YYYY-MM-DD'`), and `content`/`contentEs` — the full report. Separate paragraphs with a blank line. A line wrapped in `**double asterisks**` on its own becomes a gold subheading.
 - **Photos:** Put the cover photo in `public/images/stories/` and set `image` to `/images/stories/your-photo.jpg`.
-- **Photo gallery (optional):** Add more photos to a story with a `gallery` list — they appear as a grid under the article. Example: `gallery: ['/images/stories/la-manga-2026/photo1.jpg', '/images/stories/la-manga-2026/photo2.jpg']`.
+- **Photo gallery (optional):** Add more photos to a story with a `gallery` list — they appear as a grid under the article. Example: `gallery: ['/images/stories/my-tour/photo1.jpg', '/images/stories/my-tour/photo2.jpg']`.
+- **Point a news card at an event instead:** for match reports, write the report on the event (see section 2) and add a short news card here with a `link` field, e.g. `link: '/events/la-manga-tour-august-2026'`. Clicking the card then opens the event page. A card with `link` needs no `content`.
 
 ## 4. How to Update Club Info (Email, Schedule, Links)
 **File:** `data/siteConfig.js`

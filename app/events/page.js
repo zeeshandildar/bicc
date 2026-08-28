@@ -26,7 +26,8 @@ export default function EventsPage() {
   const events = eventsData.map((e) => ({
     ...e,
     title:       t(e.title, e.titleEs),
-    description: t(e.description, e.descriptionEs),
+    // Cards show the short `summary` when present; long reports live in `description`.
+    description: e.summary ? t(e.summary, e.summaryEs) : t(e.description, e.descriptionEs),
     location:    t(e.location, e.locationEs),
   }));
 
